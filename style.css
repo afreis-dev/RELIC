@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 *{
-    margin: 0.1%;
-    padding: 0.1%;
     scroll-behavior: smooth;
     box-sizing: border-box;
     font-family: "lexend", sans-serif;
-
+    
 }
 
 .barNavegacao{
@@ -14,12 +12,35 @@
     align-items: center;
     justify-content: center;
     border-top-left-radius: 20px; border-top-right-radius: 20px;
+    height: 90px;
 }
 .barNavegacao a{
-    color: rgb(255, 223, 185);
+    color: rgb(199, 164, 134);
     margin: 14px;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 1000;
     transition: 0.3s ease-in-out;
     text-decoration: none;
 }
+
+.amostras_inicio{
+    background-color: rgb(199, 164, 134);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;
+    width: 100%;
+    
+}
+
+
+.amostras_cima img{
+    width: 55px;
+}
+.vinil1 {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
