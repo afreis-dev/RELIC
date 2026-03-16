@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+*{
+    margin: 0.1%;
+    padding: 0.1%;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    font-family: "lexend", sans-serif;
+
+}
+
+.barNavegacao{
+    background-color: rgb(78, 45, 28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 20px; border-top-right-radius: 20px;
+}
+.barNavegacao a{
+    color: rgb(255, 223, 185);
+    margin: 14px;
+    font-size: 20px;
+    font-weight: 1000;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+}
