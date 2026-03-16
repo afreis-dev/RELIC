@@ -2,15 +2,7 @@
 
 Marketplace temático voltado para itens vintage, raros e colecionáveis como vinis, cartas, livros e jogos clássicos.
 
-<<<<<<< HEAD
 ## Sobre o projeto
-=======
-## Funcionalidades 
-* Cadastro e Login
-* Carrinho de produtos
-* Barra de pesquisa
-* Categorias de produtos 
->>>>>>> a954bb73fd05766137dc2acc02563e08a4f00397
 
 Este projeto foi desenvolvido para a disciplina de **Interfaces Humano-Computador (IHC)** com o objetivo de criar um **protótipo interativo** de uma interface digital com foco em qualidade de uso.
 
