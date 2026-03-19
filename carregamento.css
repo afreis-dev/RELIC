@@ -1,17 +1,20 @@
 :root {
     --cor-de-fundo: #0f0e0e;
-    --cor-pontos: #ffff;
+    --cor-pontos: #ffffff;
     --tamanho: 5px;
 }
+
 .conteudo {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #db1e1e;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top:0; left:0;
+    min-height: 100vh;
+    margin: 0;
+}
+
+body {
+    margin: 0;
 }
 .carregando {
     background-color: var(--cor-de-fundo);
