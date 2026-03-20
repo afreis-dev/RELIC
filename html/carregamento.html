@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de Carregamento</title>
-    <link rel="stylesheet" href="carregamento.css"> 
+    <link rel="stylesheet" href="../css/carregamento.css">
 </head>
 <body>
-    
     <div class="carregando">
         <span class="pontos"></span>
         <span class="pontos"></span>
@@ -15,13 +14,13 @@
     </div>
 
     <div class="conteudo">
-        <h1 style="color: white;">Conteúdo do Site Carregado!</h1>
+        <h1 style="color: white;">Conteudo do Site Carregado!</h1>
     </div>
-    
+
     <script>
-        window.addEventListener("load", function(){
+        window.addEventListener("load", function () {
             const telaCarregamento = document.querySelector(".carregando");
-            
+
             telaCarregamento.style.transition = "opacity 0.8s";
             telaCarregamento.style.opacity = "0";
             setTimeout(() => {
