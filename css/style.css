@@ -23,3 +23,20 @@
     transition: 0.3s ease-in-out;
     text-decoration: none;
 }
+body {
+    background-color: #cdb091;
+}
+.secao-produtos {
+    display: flex;
+    gap: 40px;
+    overflow-x: auto;
+    padding: 25px;
+}
+.card-produto {
+    min-width: 260px;
+    background-color: #d8bc9e;
+    border-radius: 18px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
