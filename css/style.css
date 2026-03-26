@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    font-family: "lexend", sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, rgba(255, 241, 223, 0.8), transparent 28%),
+        linear-gradient(135deg, #eddac4 0%, #cfb094 100%);
+    color: #3c2518;
+}
+.barNavegacao{
+    background-color: rgb(78, 45, 28);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 20px; border-top-right-radius: 20px;
+    height: 90px;
+    gap: 10px;
+    padding: 0 20px;
+}
+.barNavegacao a{
+    color: rgb(199, 164, 134);
+    margin: 14px;
+    font-size: 25px;
+    font-weight: 1000;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+}
+body {
+    background-color: #cdb091;
+}
+.secao-produtos {
+    display: flex;
+    gap: 40px;
+    overflow-x: auto;
+    padding: 25px;
+}
+.card-produto {
+    min-width: 260px;
+    background-color: #d8bc9e;
+    border-radius: 18px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.carrinho-container {
+    padding: 40px;
+    background-color: #caa d93;
+    min-height: 100vh;
+}
+
+.carrinho-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.lista-carrinho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item-carrinho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(199, 164, 134);
+    width: 70%;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 15px;
+}
+
+.item-carrinho img {
+    width: 80px;
+}
+
+.info {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.remover {
+    background-color: rgb(78, 45, 28);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.total {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.finalizar {
+    background-color: rgb(78, 45, 28);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
