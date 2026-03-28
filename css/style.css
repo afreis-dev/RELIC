@@ -33,6 +33,7 @@ body {
         radial-gradient(circle at top left, rgba(255, 255, 255, 0.65), transparent 30%),
         radial-gradient(circle at bottom right, rgba(201, 134, 72, 0.18), transparent 24%),
         linear-gradient(135deg, var(--bg) 0%, var(--bg-strong) 100%);
+    transition: opacity 0.42s ease, transform 0.42s ease, filter 0.42s ease;
 }
 
 a {
@@ -509,6 +510,95 @@ input {
     justify-content: center;
     text-align: center;
     min-height: 180px;
+}
+
+.page-loading {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 24%),
+        linear-gradient(135deg, rgba(28, 16, 11, 1) 0%, rgba(58, 33, 21, 1) 100%);
+    color: #fff7f2;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.42s ease, visibility 0.42s ease;
+}
+
+.page-loading.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+.page-loading__brand {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+}
+
+.page-loading__dots {
+    display: flex;
+    gap: 10px;
+}
+
+.page-loading__dots span {
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+    background: rgba(255, 248, 242, 0.92);
+    animation: loading-bounce 0.7s ease-in-out infinite alternate;
+}
+
+.page-loading__dots span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.page-loading__dots span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.page-loading__text {
+    color: rgba(255, 247, 242, 0.78);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+}
+
+body.is-entering .page-loading {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+body.is-entering {
+    opacity: 0.985;
+}
+
+body.is-entering .header,
+body.is-entering .page-main {
+    opacity: 0;
+    transform: translateY(16px) scale(0.985);
+    filter: blur(8px);
+    transition: opacity 0.32s ease, transform 0.42s ease, filter 0.42s ease;
+}
+
+@keyframes loading-bounce {
+    from {
+        transform: translateY(0) scale(1);
+        opacity: 0.55;
+    }
+
+    to {
+        transform: translateY(-10px) scale(1.08);
+        opacity: 1;
+    }
 }
 
 @media (max-width: 1024px) {

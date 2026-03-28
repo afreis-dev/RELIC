@@ -21,6 +21,7 @@ O projeto busca apoiar tarefas como:
 - pagina de login
 - carrinho com persistencia via `localStorage`
 - layout responsivo compartilhado entre as telas
+- transicao de carregamento entre paginas
 
 ## Estrutura do projeto
 
@@ -33,7 +34,6 @@ Projeto-IHC/
 |   |-- Game-Boy sem fundo branco.png
 |-- css/
 |   |-- style.css
-|   |-- carregamento.css
 |-- html/
 |   |-- vinil.html
 |   |-- cartas.html
@@ -41,7 +41,6 @@ Projeto-IHC/
 |   |-- jogos.html
 |   |-- carrinho.html
 |   |-- entra.html
-|   |-- carregamento.html
 |-- js/
 |   |-- script.js
 ```
@@ -67,6 +66,7 @@ Projeto-IHC/
 - reorganizacao do estilo visual em um CSS unico
 - ajuste do carrinho para renderizar itens e total corretamente
 - remocao de referencias a caminhos de imagem inexistentes
+- implementacao de transicao global de carregamento sem pagina separada
 
 ## Objetivos de IHC
 

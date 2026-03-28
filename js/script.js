@@ -6,6 +6,80 @@ function lerCarrinho() {
     }
 }
 
+function criarTelaCarregamento() {
+    if (document.querySelector(".page-loading")) {
+        return;
+    }
+
+    const overlay = document.createElement("div");
+    overlay.className = "page-loading is-visible";
+    overlay.setAttribute("aria-hidden", "true");
+    overlay.innerHTML = `
+        <div class="page-loading__brand">RELIC</div>
+        <div class="page-loading__dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="page-loading__text">Carregando pagina</div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    const esconderOverlay = () => {
+        window.setTimeout(() => {
+            overlay.classList.remove("is-visible");
+        }, 260);
+    };
+
+    if (document.readyState === "complete") {
+        window.requestAnimationFrame(esconderOverlay);
+        return;
+    }
+
+    window.addEventListener("load", esconderOverlay, { once: true });
+}
+
+function configurarTransicaoEntrePaginas() {
+    criarTelaCarregamento();
+
+    document.addEventListener("click", (event) => {
+        const link = event.target.closest("a[href]");
+
+        if (!link) {
+            return;
+        }
+
+        const href = link.getAttribute("href");
+
+        if (
+            !href ||
+            href.startsWith("#") ||
+            href.startsWith("mailto:") ||
+            href.startsWith("tel:") ||
+            link.target === "_blank" ||
+            event.metaKey ||
+            event.ctrlKey ||
+            event.shiftKey ||
+            event.altKey
+        ) {
+            return;
+        }
+
+        const destino = new URL(link.href, window.location.href);
+
+        if (destino.origin !== window.location.origin) {
+            return;
+        }
+
+        event.preventDefault();
+        document.body.classList.add("is-entering");
+        window.setTimeout(() => {
+            window.location.href = destino.href;
+        }, 430);
+    });
+}
+
 function salvarCarrinho(carrinho) {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
 }
@@ -81,4 +155,7 @@ function carregarCarrinho() {
     totalElemento.textContent = `Total: ${formatarPreco(total)}`;
 }
 
-document.addEventListener("DOMContentLoaded", carregarCarrinho);
+document.addEventListener("DOMContentLoaded", () => {
+    configurarTransicaoEntrePaginas();
+    carregarCarrinho();
+});
