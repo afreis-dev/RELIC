@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Finalizar compra - RELIC</title>
-  <link rel="stylesheet" href="css/finalizar-compra.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
   <header class="topo">
@@ -139,36 +139,26 @@
       </form>
     </section>
 
-    <aside class="resumo-pedido">
-      <h2>Resumo do pedido</h2>
+            <aside class="resumo-pedido">
+            <h2>Resumo do pedido</h2>
 
-      <div class="produto">
-        <img src="assets/charizard.png" alt="Carta Charizard Holo">
-        <div>
-          <h3>Charizard Holo</h3>
-          <p>Item reservado para colecionadores.</p>
-          <span>R$ 2.500,00</span>
-        </div>
-      </div>
+            <div id="lista-resumo"></div>
 
-      <div class="linha-resumo">
-        <p>Subtotal</p>
-        <span>R$ 2.500,00</span>
-      </div>
+            <div class="linha-resumo">
+                <p>Subtotal</p>
+                <span id="subtotal">R$ 0,00</span>
+            </div>
 
-      <div class="linha-resumo">
-        <p>Frete</p>
-        <span>R$ 25,00</span>
-      </div>
+            <div class="linha-resumo">
+                <p>Frete</p>
+                <span id="frete">R$ 25,00</span>
+            </div>
 
-      <div class="linha-resumo total">
-        <p>Total</p>
-        <span>R$ 2.525,00</span>
-      </div>
+            <div class="linha-resumo total">
+                <p>Total</p>
+                <span id="total">R$ 0,00</span>
+            </div>
 
-      <button class="btn-confirmar">Confirmar pedido</button>
-      <a href="carrinho.html" class="voltar">Voltar ao carrinho</a>
-    </aside>
-  </main>
-</body>
-</html>
+            <button class="btn-confirmar">Confirmar pedido</button>
+            <a href="carrinho.html" class="voltar">Voltar ao carrinho</a>
+            </aside>
