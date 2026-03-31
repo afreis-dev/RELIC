@@ -19,6 +19,7 @@
                 </div>
                 <div class="nav-actions">
                     <input type="search" id="pesquisa" placeholder="Pesquisar produto">
+                    <a href="./favoritos.html">Favoritos</a>
                     <a href="./carrinho.html">Carrinho</a>
                     <a href="./entra.html">Entrar</a>
                 </div>
@@ -32,12 +33,12 @@
                 <div class="page-hero-copy">
                     <span class="tag">Categoria</span>
                     <h1>Vinis para quem escuta e coleciona.</h1>
-                    <p>Discos selecionados para quem aprecia capas marcantes e edicoes especiais.</p>
+                    <p>Discos selecionados para quem aprecia capas marcantes e edições especiais.</p>
                 </div>
                 <div class="page-hero-panel">
                     <div class="panel-highlight">
                         <strong>Destaque</strong>
-                        <p>Albuns especiais para preencher a estante com classicos inesqueciveis.</p>
+                        <p>Álbuns especiais para preencher a estante com clássicos inesquecíveis.</p>
                     </div>
                 </div>
             </section>
@@ -46,15 +47,15 @@
                 <div class="catalogo-tools">
                     <div class="section-head">
                         <div>
-                            <h2>Catalogo de vinis</h2>
-                            <p class="catalogo-intro">Filtre por estado de conservacao, autenticidade, disponibilidade ou pesquise por titulo.</p>
+                            <h2>Catálogo de vinis</h2>
+                            <p class="catalogo-intro">Filtre por estado, autenticidade, disponibilidade ou pesquise por título.</p>
                         </div>
                     </div>
 
                     <div class="catalogo-filtros">
                         <div class="filtro-grupo">
                             <label for="busca-vinil">Buscar</label>
-                            <input id="busca-vinil" type="search" data-filter="search" placeholder="Nome do album ou artista">
+                            <input id="busca-vinil" type="search" data-filter="search" placeholder="Nome do álbum ou artista">
                         </div>
                         <div class="filtro-grupo">
                             <label for="estado-vinil">Estado</label>
@@ -77,97 +78,115 @@
                             <label for="disp-vinil">Disponibilidade</label>
                             <select id="disp-vinil" data-filter="availability">
                                 <option value="">Todos</option>
-                                <option value="disponivel">Disponivel</option>
-                                <option value="ultimo">Ultima unidade</option>
+                                <option value="disponivel">Disponível</option>
+                                <option value="ultimo">Última unidade</option>
                             </select>
                         </div>
                     </div>
                 </div>
 
                 <div class="product-grid">
+
+                    <!-- VINIL 1 -->
                     <article class="produto-card" data-search="vinil ariana grande pop lacrado certificado disponivel" data-condition="lacrado" data-authenticity="certificado" data-availability="disponivel">
                         <div class="produto-imagem">
                             <img src="../assets/arianavinil.png" alt="Vinil Ariana Grande">
                         </div>
                         <div class="produto-info">
                             <div class="produto-badges">
-                                <span class="produto-badge status-disponivel">Disponivel</span>
+                                <span class="produto-badge status-disponivel">Disponível</span>
                                 <span class="produto-badge">Certificado</span>
                             </div>
                             <h3>Vinil Ariana Grande</h3>
-                            <p>Edicao especial em acabamento premium.</p>
+                            <p>Edição especial em acabamento premium.</p>
                             <ul class="produto-meta">
                                 <li><strong>Estado:</strong> Lacrado</li>
                                 <li><strong>Autenticidade:</strong> Certificado pela loja</li>
                                 <li><strong>Disponibilidade:</strong> 3 unidades</li>
                             </ul>
                             <span class="produto-preco">R$ 120,00</span>
+
                             <button class="produto-acao" type="button" onclick="adicionarCarrinho('Vinil Ariana Grande', 120, '../assets/arianavinil.png')">Adicionar ao carrinho</button>
+
+                            <button class="produto-acao secundario" type="button" onclick="adicionarFavoritos('Vinil Ariana Grande', '../assets/arianavinil.png')">❤ Favoritar</button>
                         </div>
                     </article>
 
+                    <!-- VINIL 2 -->
                     <article class="produto-card" data-search="vinil taylor swift pop excelente verificado ultimo" data-condition="excelente" data-authenticity="verificado" data-availability="ultimo">
                         <div class="produto-imagem">
                             <img src="../assets/vinil-taylor-swift.png" alt="Vinil Taylor Swift">
                         </div>
                         <div class="produto-info">
                             <div class="produto-badges">
-                                <span class="produto-badge status-ultimo">Ultima unidade</span>
+                                <span class="produto-badge status-ultimo">Última unidade</span>
                                 <span class="produto-badge">Verificado</span>
                             </div>
                             <h3>Vinil Taylor Swift</h3>
-                            <p>Album para colecionadores de pop contemporaneo.</p>
+                            <p>Álbum para colecionadores de pop contemporâneo.</p>
                             <ul class="produto-meta">
                                 <li><strong>Estado:</strong> Excelente</li>
                                 <li><strong>Autenticidade:</strong> Selo verificado</li>
                                 <li><strong>Disponibilidade:</strong> 1 unidade</li>
                             </ul>
                             <span class="produto-preco">R$ 145,00</span>
+
                             <button class="produto-acao" type="button" onclick="adicionarCarrinho('Vinil Taylor Swift', 145, '../assets/vinil-taylor-swift.png')">Adicionar ao carrinho</button>
+
+                            <button class="produto-acao secundario" type="button" onclick="adicionarFavoritos('Vinil Taylor Swift', '../assets/vinil-taylor-swift.png')">❤ Favoritar</button>
                         </div>
                     </article>
 
+                    <!-- VINIL 3 -->
                     <article class="produto-card" data-search="vinil elton john rock muito bom certificado disponivel" data-condition="muito-bom" data-authenticity="certificado" data-availability="disponivel">
                         <div class="produto-imagem">
                             <img src="../assets/disco-de-vinil-elton-john.png" alt="Vinil Elton John">
                         </div>
                         <div class="produto-info">
                             <div class="produto-badges">
-                                <span class="produto-badge status-disponivel">Disponivel</span>
+                                <span class="produto-badge status-disponivel">Disponível</span>
                                 <span class="produto-badge">Certificado</span>
                             </div>
                             <h3>Vinil Elton John</h3>
-                            <p>Classico restaurado para a sua prateleira musical.</p>
+                            <p>Clássico restaurado para a sua prateleira musical.</p>
                             <ul class="produto-meta">
                                 <li><strong>Estado:</strong> Muito bom</li>
                                 <li><strong>Autenticidade:</strong> Certificado pela curadoria</li>
                                 <li><strong>Disponibilidade:</strong> 2 unidades</li>
                             </ul>
                             <span class="produto-preco">R$ 132,00</span>
+
                             <button class="produto-acao" type="button" onclick="adicionarCarrinho('Vinil Elton John', 132, '../assets/disco-de-vinil-elton-john.png')">Adicionar ao carrinho</button>
+
+                            <button class="produto-acao secundario" type="button" onclick="adicionarFavoritos('Vinil Elton John', '../assets/disco-de-vinil-elton-john.png')">❤ Favoritar</button>
                         </div>
                     </article>
 
+                    <!-- VINIL 4 -->
                     <article class="produto-card" data-search="vinil michael jackson pop excelente verificado disponivel" data-condition="excelente" data-authenticity="verificado" data-availability="disponivel">
                         <div class="produto-imagem">
                             <img src="../assets/Vinil Michael Jackson.png" alt="Vinil Michael Jackson">
                         </div>
                         <div class="produto-info">
                             <div class="produto-badges">
-                                <span class="produto-badge status-disponivel">Disponivel</span>
+                                <span class="produto-badge status-disponivel">Disponível</span>
                                 <span class="produto-badge">Verificado</span>
                             </div>
                             <h3>Vinil Michael Jackson</h3>
-                            <p>Uma edicao especial pensada para colecoes retro.</p>
+                            <p>Edição especial pensada para coleções retrô.</p>
                             <ul class="produto-meta">
                                 <li><strong>Estado:</strong> Excelente</li>
                                 <li><strong>Autenticidade:</strong> Verificado pela equipe</li>
                                 <li><strong>Disponibilidade:</strong> 4 unidades</li>
                             </ul>
                             <span class="produto-preco">R$ 158,00</span>
+
                             <button class="produto-acao" type="button" onclick="adicionarCarrinho('Vinil Michael Jackson', 158, '../assets/Vinil Michael Jackson.png')">Adicionar ao carrinho</button>
+
+                            <button class="produto-acao secundario" type="button" onclick="adicionarFavoritos('Vinil Michael Jackson', '../assets/Vinil Michael Jackson.png')">❤ Favoritar</button>
                         </div>
                     </article>
+
                 </div>
 
                 <div class="catalogo-vazio">
@@ -178,5 +197,6 @@
     </main>
 
     <script src="../js/script.js"></script>
+    <script src="../js/favoritos.js"></script>
 </body>
 </html>
