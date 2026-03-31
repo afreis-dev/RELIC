@@ -3,71 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/jogos.css">
-    <link href='https://cdn.boxicons.com/3.0.6/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
     <title>Jogos | Relic</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <header class="header">
-        
+
+<header class="header">
+    <div class="site-shell">
         <nav class="barNavegacao">
-            <a href="index.html">NOME DA PLATAFORMA</a>
-            <a href="vinil.html">Vinil</a>
-            <a href="cartas.html">Cartas</a>
-            <a href="livros.html">Livros</a>
-            <a href="jogos.html">Jogos</a>
+            <a href="../index.html" class="nav-brand">RELIC</a>
 
-            <input type="search" name="pesquisa" id="pesquisa">
-            <a href="entra.html">Entrar</a>
+            <div class="nav-links">
+                <a href="./vinil.html">Vinil</a>
+                <a href="./cartas.html">Cartas</a>
+                <a href="./livros.html">Livros</a>
+                <a href="./jogos.html" class="ativo">Jogos</a>
+            </div>
+
+            <div class="nav-actions">
+                <input type="search" placeholder="Pesquisar produto">
+                <a href="./favoritos.html">Favoritos</a>
+                <a href="./carrinho.html">Carrinho</a>
+                <a href="./entra.html">Entrar</a>
+            </div>
         </nav>
-        
-        <section class="inicio" >
+    </div>
+</header>
 
-            <div class="amostras_inicio">
-                <div class="amostras_cima">
+<main class="page-main">
+    <div class="site-shell">
 
-                    <div class="cardprodutos">
-                        <img src="../assets/gameBoyadvance-removebg.png" alt=" Nintendo Game Boy">
-                        <h3>Nintendo Game Boy</h3>
-                        <p class="descricao">
-                            Nintendo Game Boy Retrô. 
-                        </p>
-                        <span class="preco">R$ 400,00</span>
-                    </div>
+        <!-- HERO -->
+        <section class="page-hero">
+            <div class="page-hero-copy">
+                <span class="tag">Categoria</span>
+                <h1>Jogos retrô para colecionadores</h1>
+                <p>Consoles clássicos que marcaram gerações e continuam sendo relíquias.</p>
+            </div>
 
-                    <div class="cardprodutos">
-                        <img src="../assets/atari.png" alt="Atari 2600">
-                        <h3>Atari 2600</h3>
-                        <p class="descricao">
-                            Deep Silver Atari 2600. 
-                        </p>
-                        <span class="preco">R$ 550,00</span>
-                    </div>
+            <div class="page-hero-panel">
+                <div class="panel-highlight">
+                    <strong>Curadoria especial</strong>
+                    <p>Selecionamos consoles icônicos para sua coleção gamer retrô.</p>
+                </div>
+            </div>
+        </section>
 
-                    <div class="cardprodutos">
-                        <img src="../assets/nintendinho.png" alt=" Console Nintendinho">
-                        <h3>Console Nintendinho</h3>
-                        <p class="descricao">
-                            Console Nintendinho 8 bits. 
-                        </p>
-                        <span class="preco">R$ 1499,00</span>
-                    </div>
+        <!-- CATÁLOGO -->
+        <section class="catalogo">
 
-                    <div class="cardprodutos">
-                        <img src="../assets/gameboycolor.png" alt="Nintendo Game Boy Color">
-                        <h3>Nintendo Game Boy Color</h3>
-                        <p class="descricao">
-                            Nintendo Game Boy Color. 
-                        </p>
-                        <span class="preco">R$ 1000,00</span>
-                    </div>
-                    </div>
-
+            <div class="section-head">
+                <div>
+                    <h2>Consoles disponíveis</h2>
+                    <p class="catalogo-intro">Explore consoles clássicos em diferentes estados e raridades.</p>
                 </div>
             </div>
 
+            <div class="product-grid">
+
+                <!-- GAME BOY -->
+                <article class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="../assets/gameBoyadvance-removebg.png" alt="Game Boy Advance">
+                    </div>
+
+                    <div class="produto-info">
+                        <h3>Game Boy Advance</h3>
+                        <p>Console portátil clássico da Nintendo.</p>
+
+                        <span class="produto-preco">R$ 400,00</span>
+
+                        <button class="produto-acao" onclick="adicionarCarrinho('Game Boy Advance', 400, '../assets/gameBoyadvance-removebg.png')">
+                            Adicionar ao carrinho
+                        </button>
+
+                        <button class="produto-acao secundario" onclick="adicionarFavoritos('Game Boy Advance', '../assets/gameBoyadvance-removebg.png')">
+                            ❤ Favoritar
+                        </button>
+                    </div>
+                </article>
+
+                <!-- ATARI -->
+                <article class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="../assets/atari.png" alt="Atari 2600">
+                    </div>
+
+                    <div class="produto-info">
+                        <h3>Atari 2600</h3>
+                        <p>Um dos primeiros consoles da história.</p>
+
+                        <span class="produto-preco">R$ 550,00</span>
+
+                        <button class="produto-acao" onclick="adicionarCarrinho('Atari 2600', 550, '../assets/atari.png')">
+                            Adicionar ao carrinho
+                        </button>
+
+                        <button class="produto-acao secundario" onclick="adicionarFavoritos('Atari 2600', '../assets/atari.png')">
+                            ❤ Favoritar
+                        </button>
+                    </div>
+                </article>
+
+                <!-- NINTENDINHO -->
+                <article class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="../assets/nintendinho.png" alt="Nintendinho">
+                    </div>
+
+                    <div class="produto-info">
+                        <h3>Nintendinho</h3>
+                        <p>Console 8 bits que revolucionou os games.</p>
+
+                        <span class="produto-preco">R$ 1499,00</span>
+
+                        <button class="produto-acao" onclick="adicionarCarrinho('Nintendinho', 1499, '../assets/nintendinho.png')">
+                            Adicionar ao carrinho
+                        </button>
+
+                        <button class="produto-acao secundario" onclick="adicionarFavoritos('Nintendinho', '../assets/nintendinho.png')">
+                            ❤ Favoritar
+                        </button>
+                    </div>
+                </article>
+
+                <!-- GAME BOY COLOR -->
+                <article class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="../assets/gameboycolor.png" alt="Game Boy Color">
+                    </div>
+
+                    <div class="produto-info">
+                        <h3>Game Boy Color</h3>
+                        <p>Versão colorida do clássico portátil.</p>
+
+                        <span class="produto-preco">R$ 1000,00</span>
+
+                        <button class="produto-acao" onclick="adicionarCarrinho('Game Boy Color', 1000, '../assets/gameboycolor.png')">
+                            Adicionar ao carrinho
+                        </button>
+
+                        <button class="produto-acao secundario" onclick="adicionarFavoritos('Game Boy Color', '../assets/gameboycolor.png')">
+                            ❤ Favoritar
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+
         </section>
-    </header>
-    <script src="script.js"></script>
+
+    </div>
+</main>
+
+<script src="../js/script.js"></script>
+<script src="../js/favoritos.js"></script>
+
 </body>
 </html>
