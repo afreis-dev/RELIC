@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoritos | Relic</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="site-shell">
+            <nav class="barNavegacao">
+                <a href="../index.html" class="nav-brand">RELIC</a>
+                <div class="nav-links">
+                    <a href="./vinil.html">Vinil</a>
+                    <a href="./cartas.html">Cartas</a>
+                    <a href="./livros.html">Livros</a>
+                    <a href="./jogos.html">Jogos</a>
+                </div>
+                <div class="nav-actions">
+                    <input type="search" id="pesquisa" placeholder="Pesquisar produto">
+                    <a href="./favoritos.html" class="ativo">Favoritos</a>
+                    <a href="./entra.html">Entrar</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-main">
+        <div class="site-shell">
+            <section class="carrinho-container">
+                <div class="carrinho-header">
+                    <div>
+                        <span class="tag">Lista</span>
+                        <h1>Seus favoritos</h1>
+                    </div>
+                    <a href="../index.html" class="button-secondary">Voltar à loja</a>
+                </div>
+
+                <div class="lista-favoritos"></div>
+
+                <div class="total">
+                    <h2>Total de itens: 0</h2>
+                    <button class="finalizar" type="button">Ver produtos salvos</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../js/favoritos.js"></script>
+</body>
+</html>

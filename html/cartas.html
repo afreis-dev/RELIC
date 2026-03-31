@@ -1,11 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cartas | Relic</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    
+    <header class="header">
+        <div class="site-shell">
+            <nav class="barNavegacao">
+                <a href="../index.html" class="nav-brand">RELIC</a>
+                <div class="nav-links">
+                    <a href="./vinil.html">Vinil</a>
+                    <a href="./cartas.html" class="ativo">Cartas</a>
+                    <a href="./livros.html">Livros</a>
+                    <a href="./jogos.html">Jogos</a>
+                </div>
+                <div class="nav-actions">
+                    <input type="search" id="pesquisa" placeholder="Pesquisar produto">
+                    <a href="./favoritos.html">Favoritos</a>
+                    <a href="./carrinho.html">Carrinho</a>
+                    <a href="./entra.html">Entrar</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-main">
+        <div class="site-shell">
+            <section class="page-hero">
+                <div class="page-hero-copy">
+                    <span class="tag">Categoria</span>
+                    <h1>Cartas raras para coleções memoráveis.</h1>
+                    <p>Encontre cartas cobiçadas por colecionadores e fãs de universos clássicos.</p>
+                </div>
+                <div class="page-hero-panel">
+                    <div class="panel-highlight">
+                        <strong>Curadoria TCG</strong>
+                        <p>Cartas raras com informações importantes para quem compra com mais critério.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="catalogo">
+                <div class="catalogo-tools">
+                    <div class="section-head">
+                        <div>
+                            <h2>Cartas em destaque</h2>
+                            <p class="catalogo-intro">Compare raridade, autenticidade e disponibilidade antes de adicionar ao carrinho.</p>
+                        </div>
+                    </div>
+
+                    <div class="catalogo-filtros">
+                        <div class="filtro-grupo">
+                            <label for="busca-cartas">Buscar</label>
+                            <input id="busca-cartas" type="search" data-filter="search" placeholder="Nome da carta">
+                        </div>
+                        <div class="filtro-grupo">
+                            <label for="estado-cartas">Estado</label>
+                            <select id="estado-cartas" data-filter="condition">
+                                <option value="">Todos</option>
+                                <option value="mint">Mint</option>
+                                <option value="excelente">Excelente</option>
+                                <option value="muito-bom">Muito bom</option>
+                            </select>
+                        </div>
+                        <div class="filtro-grupo">
+                            <label for="auth-cartas">Autenticidade</label>
+                            <select id="auth-cartas" data-filter="authenticity">
+                                <option value="">Todos</option>
+                                <option value="laudo">Com laudo</option>
+                                <option value="verificado">Verificado</option>
+                            </select>
+                        </div>
+                        <div class="filtro-grupo">
+                            <label for="disp-cartas">Disponibilidade</label>
+                            <select id="disp-cartas" data-filter="availability">
+                                <option value="">Todos</option>
+                                <option value="disponivel">Disponível</option>
+                                <option value="ultimo">Última unidade</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-grid">
+
+                    <article class="produto-card" data-search="charizard holo pokemon mint laudo ultima unidade" data-condition="mint" data-authenticity="laudo" data-availability="ultimo">
+                        <div class="produto-imagem">
+                            <img src="../assets/Charizard Holo-carta.png" alt="Carta Charizard Holo">
+                        </div>
+                        <div class="produto-info">
+                            <div class="produto-badges">
+                                <span class="produto-badge status-ultimo">Última unidade</span>
+                                <span class="produto-badge">Laudo</span>
+                            </div>
+
+                            <h3>Charizard Holo</h3>
+                            <p>Carta rara clássica para colecionadores.</p>
+
+                            <ul class="produto-meta">
+                                <li><strong>Estado:</strong> Mint</li>
+                                <li><strong>Autenticidade:</strong> Laudo de avaliação</li>
+                                <li><strong>Disponibilidade:</strong> 1 unidade</li>
+                            </ul>
+
+                            <span class="produto-preco">R$ 2.500,00</span>
+
+                            <button class="produto-acao" type="button" onclick="adicionarCarrinho('Charizard Holo', 2500, '../assets/Charizard Holo-carta.png')">Adicionar ao carrinho</button>
+
+                            <button class="produto-acao secundario" type="button" onclick="adicionarFavoritos('Charizard Holo', '../assets/Charizard Holo-carta.png')">❤ Favoritar</button>
+                        </div>
+                    </article>
+
+                    <article class="produto-card" data-search="pikachu illustrator pokemon mint laudo disponivel" data-condition="mint" data-authenticity="laudo" data-availability="disponivel">
+                        <div class="produto-imagem">
+                            <img src="../assets/pikachu-ilustrator-carta.png" alt="Carta Pikachu Illustrator">
+                        </div>
+                        <div class="produto-info">
+                            <div class="produto-badges">
+                                <span class="produto-badge status-disponivel">Disponível</span>
+                                <span class="produto-badge">Laudo</span>
+                            </div>
+
+                            <h3>Pikachu Illustrator</h3>
+                            <p>Uma das cartas mais desejadas do mercado de coleção.</p>
+
+                            <ul class="produto-meta">
+                                <li><strong>Estado:</strong> Mint</li>
+                                <li><strong>Autenticidade:</strong> Laudo internacional</li>
+                                <li><strong>Disponibilidade:</strong> 2 unidades</li>
+                            </ul>
+
+                            <span class="produto-preco">R$ 10.000,00</span>
+
+                            <button class="produto-acao" type="button" onclick="adicionarCarrinho('Pikachu Illustrator', 10000, '../assets/pikachu-ilustrator-carta.png')">Adicionar ao carrinho</button>
+
+                            <button class="produto-acao secundario" type="button" onclick="adicionarFavoritos('Pikachu Illustrator', '../assets/pikachu-ilustrator-carta.png')">❤ Favoritar</button>
+                        </div>
+                    </article>
+
+                    <article class="produto-card" data-search="mewtwo gx pokemon excelente verificado disponivel" data-condition="excelente" data-authenticity="verificado" data-availability="disponivel">
+                        <div class="produto-imagem">
+                            <img src="../assets/Mewtwo GX-carta.png" alt="Carta Mewtwo GX">
+                        </div>
+                        <div class="produto-info">
+                            <div class="produto-badges">
+                                <span class="produto-badge status-disponivel">Disponível</span>
+                                <span class="produto-badge">Verificado</span>
+                            </div>
+
+                            <h3>Mewtwo GX</h3>
+                            <p>Peça poderosa e muito procurada entre colecionadores.</p>
+
+                            <ul class="produto-meta">
+                                <li><strong>Estado:</strong> Excelente</li>
+                                <li><strong>Autenticidade:</strong> Verificado pela loja</li>
+                                <li><strong>Disponibilidade:</strong> 5 unidades</li>
+                            </ul>
+
+                            <span class="produto-preco">R$ 900,00</span>
+
+                            <button class="produto-acao" type="button" onclick="adicionarCarrinho('Mewtwo GX', 900, '../assets/Mewtwo GX-carta.png')">Adicionar ao carrinho</button>
+
+                            <button class="produto-acao secundario" type="button" onclick="adicionarFavoritos('Mewtwo GX', '../assets/Mewtwo GX-carta.png')">❤ Favoritar</button>
+                        </div>
+                    </article>
+
+                    <article class="produto-card" data-search="rayquaza ex pokemon muito bom verificado ultimo" data-condition="muito-bom" data-authenticity="verificado" data-availability="ultimo">
+                        <div class="produto-imagem">
+                            <img src="../assets/Rayquaza EX-carta.png" alt="Carta Rayquaza EX">
+                        </div>
+                        <div class="produto-info">
+                            <div class="produto-badges">
+                                <span class="produto-badge status-ultimo">Última unidade</span>
+                                <span class="produto-badge">Verificado</span>
+                            </div>
+
+                            <h3>Rayquaza EX</h3>
+                            <p>Item lendário para ampliar uma coleção premium.</p>
+
+                            <ul class="produto-meta">
+                                <li><strong>Estado:</strong> Muito bom</li>
+                                <li><strong>Autenticidade:</strong> Verificado pela curadoria</li>
+                                <li><strong>Disponibilidade:</strong> 1 unidade</li>
+                            </ul>
+
+                            <span class="produto-preco">R$ 1.200,00</span>
+
+                            <button class="produto-acao" type="button" onclick="adicionarCarrinho('Rayquaza EX', 1200, '../assets/Rayquaza EX-carta.png')">Adicionar ao carrinho</button>
+
+                            <button class="produto-acao secundario" type="button" onclick="adicionarFavoritos('Rayquaza EX', '../assets/Rayquaza EX-carta.png')">❤ Favoritar</button>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="catalogo-vazio">Nenhuma carta corresponde aos filtros selecionados.</div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/favoritos.js"></script>
 </body>
 </html>

@@ -1,73 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href='https://cdn.boxicons.com/3.0.6/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
-    <title>Nome da Plataforma</title>
+    <title>Relic | Marketplace vintage</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header class="header">
-        
-        <nav class="barNavegacao">
-            <a href="index.html">NOME DA PLATAFORMA</a>
-            <a href="vinil.html">Vinil</a>
-            <a href="cartas.html">Cartas</a>
-            <a href="livros.html">Livros</a>
-            <a href="jogos.html">Jogos</a>
-
-            <input type="search" name="pesquisa" id="pesquisa">
-            <a href="entra.html">Entrar</a>
-        </nav>
-        
-        <section class="inicio" >
-
-            <div class="amostras_inicio">
-                <div class="amostras_cima">
-
-                    <div class="cardprodutos">
-                        <img src="arianavinil.png" alt="Vinil Ariana Grande">
-                        <h3>Vinil Ariana Grande</h3>
-                        <p class="descricao">
-                            Álbum em vinil edição especial. 
-                        </p>
-                        <span class="preco">R$ 120,00</span>
-                    </div>
-
-                    <div class="cardprodutos">
-                        <img src="arianavinil.png" alt="Vinil Ariana Grande">
-                        <h3>Vinil Ariana Grande</h3>
-                        <p class="descricao">
-                            Álbum em vinil edição especial. 
-                        </p>
-                        <span class="preco">R$ 120,00</span>
-                    </div>
-
-                    <div class="cardprodutos">
-                        <img src="arianavinil.png" alt="Vinil Ariana Grande">
-                        <h3>Vinil Ariana Grande</h3>
-                        <p class="descricao">
-                            Álbum em vinil edição especial. 
-                        </p>
-                        <span class="preco">R$ 120,00</span>
-                    </div>
-
-                    <div class="cardprodutos">
-                        <img src="arianavinil.png" alt="Vinil Ariana Grande">
-                        <h3>Vinil Ariana Grande</h3>
-                        <p class="descricao">
-                            Álbum em vinil edição especial. 
-                        </p>
-                        <span class="preco">R$ 120,00</span>
-                    </div>
-                    </div>
-
+        <div class="site-shell">
+            <nav class="barNavegacao">
+                <a href="index.html" class="nav-brand">RELIC</a>
+                <div class="nav-links">
+                    <a href="html/vinil.html">Vinil</a>
+                    <a href="html/cartas.html">Cartas</a>
+                    <a href="html/livros.html">Livros</a>
+                    <a href="html/jogos.html">Jogos</a>
                 </div>
-            </div>
-
-        </section>
+                <div class="nav-actions">
+                    <input type="search" id="pesquisa" placeholder="Pesquisar item raro">
+                    <a href="html/carrinho.html">Carrinho</a>
+                    <a href="html/entra.html">Entrar</a>
+                </div>
+            </nav>
+        </div>
     </header>
-    <script src="script.js"></script>
+
+    <main class="page-main">
+        <div class="site-shell">
+            <section class="hero">
+                <div class="hero-copy">
+                    <span class="tag">Curadoria vintage</span>
+                    <h1>Itens raros para quem gosta de colecionar com estilo.</h1>
+                    <p>
+                        Explore vinis, cartas, livros e jogos em uma vitrine feita para quem gosta
+                        de nostalgia, colecao e descobertas especiais.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="html/vinil.html" class="button-primary">Ver destaques</a>
+                        <a href="html/carrinho.html" class="button-secondary">Abrir carrinho</a>
+                    </div>
+                </div>
+
+                <div class="hero-panel">
+                    <div class="panel-highlight">
+                        <strong>Selecao da semana</strong>
+                        <p>Uma selecao de itens que combinam historia, estilo e memoria afetiva.</p>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>4 categorias</strong>
+                        <p>Vinil, cartas, livros e jogos em uma unica experiencia.</p>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>Favoritos da sua selecao</strong>
+                        <p>Guarde seus itens favoritos antes de seguir para a finalizacao da compra.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-head">
+                    <div>
+                        <h2>Categorias</h2>
+                        <p>Navegue pelas colecoes principais da loja.</p>
+                    </div>
+                </div>
+
+                <div class="category-grid">
+                    <a href="html/vinil.html">
+                        <h3>Vinil</h3>
+                        <p>Albuns classicos e edicoes especiais para a sua estante.</p>
+                    </a>
+                    <a href="html/cartas.html">
+                        <h3>Cartas</h3>
+                        <p>Pecas raras e colecionaveis com foco em nostalgia.</p>
+                    </a>
+                    <a href="html/livros.html">
+                        <h3>Livros</h3>
+                        <p>Classicos atemporais e edicoes para leitores apaixonados.</p>
+                    </a>
+                    <a href="html/jogos.html">
+                        <h3>Jogos</h3>
+                        <p>Consoles e itens retro para completar sua colecao.</p>
+                    </a>
+                </div>
+            </section>
+
+            <section class="catalogo">
+                <div class="section-head">
+                    <div>
+                        <h2>Destaques</h2>
+                        <p>Selecao especial com itens procurados por colecionadores.</p>
+                    </div>
+                </div>
+
+                <div class="product-grid">
+                    <article class="produto-card">
+                        <div class="produto-imagem">
+                            <img src="assets/arianavinil.png" alt="Vinil Ariana Grande">
+                        </div>
+                        <div class="produto-info">
+                            <h3>Vinil Ariana Grande</h3>
+                            <p>Edicao especial para colecionadores de pop.</p>
+                            <span class="produto-preco">R$ 120,00</span>
+                            <button class="produto-acao" type="button" onclick="adicionarCarrinho('Vinil Ariana Grande', 120, 'assets/arianavinil.png')">Adicionar ao carrinho</button>
+                        </div>
+                    </article>
+
+                    <article class="produto-card">
+                        <div class="produto-imagem">
+                            <img src="assets/Charizard Holo-carta.png" alt="Carta Charizard Holo">
+                        </div>
+                        <div class="produto-info">
+                            <h3>Charizard Holo</h3>
+                            <p>Carta iconica para colecoes de alto valor afetivo.</p>
+                            <span class="produto-preco">R$ 2.500,00</span>
+                            <button class="produto-acao" type="button" onclick="adicionarCarrinho('Charizard Holo', 2500, 'assets/Charizard Holo-carta.png')">Adicionar ao carrinho</button>
+                        </div>
+                    </article>
+
+                    <article class="produto-card">
+                        <div class="produto-imagem">
+                            <img src="assets/Dom Casmurro-livro.png" alt="Livro Dom Casmurro">
+                        </div>
+                        <div class="produto-info">
+                            <h3>Dom Casmurro</h3>
+                            <p>Classico brasileiro em edicao de colecionador.</p>
+                            <span class="produto-preco">R$ 80,00</span>
+                            <button class="produto-acao" type="button" onclick="adicionarCarrinho('Dom Casmurro', 80, 'assets/Dom Casmurro-livro.png')">Adicionar ao carrinho</button>
+                        </div>
+                    </article>
+
+                    <article class="produto-card">
+                        <div class="produto-imagem">
+                            <img src="assets/super nintendo-console.png" alt="Super Nintendo">
+                        </div>
+                        <div class="produto-info">
+                            <h3>Super Nintendo</h3>
+                            <p>Console classico para quem coleciona grandes geracoes dos games.</p>
+                            <span class="produto-preco">R$ 400,00</span>
+                            <button class="produto-acao" type="button" onclick="adicionarCarrinho('Super Nintendo', 400, 'assets/super nintendo-console.png')">Adicionar ao carrinho</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

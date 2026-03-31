@@ -1,11 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Entrar | Relic</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    
+    <header class="header">
+        <div class="site-shell">
+            <nav class="barNavegacao">
+                <a href="../index.html" class="nav-brand">RELIC</a>
+                <div class="nav-links">
+                    <a href="./vinil.html">Vinil</a>
+                    <a href="./cartas.html">Cartas</a>
+                    <a href="./livros.html">Livros</a>
+                    <a href="./jogos.html">Jogos</a>
+                </div>
+                <div class="nav-actions">
+                    <input type="search" id="pesquisa" placeholder="Pesquisar produto">
+                    <a href="./carrinho.html">Carrinho</a>
+                    <a href="./entra.html" class="ativo">Entrar</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-main">
+        <div class="site-shell">
+            <section class="login-container">
+                <section class="login-destaque">
+                    <span class="selo-vintage">Marketplace vintage</span>
+                    <h1>Entre para acompanhar a sua colecao.</h1>
+                    <p>
+                        Entre para acompanhar favoritos, revisar pedidos e continuar explorando o acervo da loja.
+                    </p>
+
+                    <div class="login-cards">
+                        <article class="mini-card">
+                            <span class="mini-tag">Raro</span>
+                            <h2>Pink Floyd</h2>
+                            <p>Edicoes especiais para uma biblioteca musical de respeito.</p>
+                        </article>
+
+                        <article class="mini-card">
+                            <span class="mini-tag">Limitado</span>
+                            <h2>Charizard</h2>
+                            <p>Itens de alto apelo nostalgico em um fluxo mais organizado.</p>
+                        </article>
+
+                        <article class="mini-card">
+                            <span class="mini-tag">Classico</span>
+                            <h2>1984</h2>
+                            <p>Curadoria de livros, jogos e colecionaveis em uma so vitrine.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="login-box">
+                    <span class="selo-vintage">Acesso do usuario</span>
+                    <h2>Bem-vindo de volta</h2>
+                    <p class="login-texto">Faca login para continuar explorando o acervo vintage.</p>
+
+                    <form class="form-login">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+
+                        <div class="login-opcoes">
+                            <label class="lembrar">
+                                <input type="checkbox" name="lembrar">
+                                Lembrar de mim
+                            </label>
+                            <a href="#">Esqueci minha senha</a>
+                        </div>
+
+                        <button type="submit" class="botao-login">Entrar na conta</button>
+                    </form>
+
+                    <div class="divisor">
+                        <span>ou continue com</span>
+                    </div>
+
+                    <div class="login-social">
+                        <button type="button">Google</button>
+                        <button type="button">GitHub</button>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </main>
 </body>
 </html>
