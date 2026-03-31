@@ -215,4 +215,50 @@ document.addEventListener("DOMContentLoaded", () => {
     configurarTransicaoEntrePaginas();
     configurarFiltrosCatalogo();
     carregarCarrinho();
+    carregarResumoPedido();
 });
+
+
+function carregarResumoPedido() {
+  const listaResumo = document.querySelector("#lista-resumo");
+  const subtotalElemento = document.querySelector("#subtotal");
+  const freteElemento = document.querySelector("#frete");
+  const totalElemento = document.querySelector("#total");
+
+  if (!listaResumo || !subtotalElemento || !freteElemento || !totalElemento) {
+    return;
+  }
+
+  const carrinho = lerCarrinho();
+  const frete = carrinho.length > 0 ? 25 : 0;
+
+  if (carrinho.length === 0) {
+    listaResumo.innerHTML = "<p>Seu carrinho está vazio.</p>";
+    subtotalElemento.textContent = "R$ 0,00";
+    freteElemento.textContent = formatarPreco(frete);
+    totalElemento.textContent = "R$ 0,00";
+    return;
+  }
+
+  let subtotal = 0;
+
+  listaResumo.innerHTML = carrinho.map((item) => {
+    subtotal += Number(item.preco);
+
+    return `
+      <div class="item-resumo">
+        <img src="${item.imagem}" alt="${item.nome}">
+        <div>
+          <p>${item.nome}</p>
+          <span>${formatarPreco(item.preco)}</span>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  const total = subtotal + frete;
+
+  subtotalElemento.textContent = formatarPreco(subtotal);
+  freteElemento.textContent = formatarPreco(frete);
+  totalElemento.textContent = formatarPreco(total);
+}
