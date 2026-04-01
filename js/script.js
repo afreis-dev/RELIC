@@ -4,7 +4,9 @@ const STORAGE_KEYS = {
     users: "relic-users",
     session: "relic-session",
     checkoutRedirect: "relic-checkout-redirect",
-    theme: "relic-theme"
+    theme: "relic-theme",
+    orders: "relic-orders",
+    lastOrder: "relic-last-order"
 };
 
 function readJson(key, fallback) {
@@ -69,6 +71,14 @@ function lerRedirectCheckout() {
 
 function limparRedirectCheckout() {
     localStorage.removeItem(STORAGE_KEYS.checkoutRedirect);
+}
+
+function lerPedidos() {
+    return readJson(STORAGE_KEYS.orders, []);
+}
+
+function salvarPedidos(pedidos) {
+    writeJson(STORAGE_KEYS.orders, pedidos);
 }
 
 function normalizarTexto(valor) {
@@ -581,18 +591,31 @@ function carregarFavoritos() {
         return;
     }
 
-    lista.innerHTML = favoritos.map((item, index) => `
-        <div class="item-carrinho">
-            <img src="${item.imagem}" alt="${item.nome}">
-            <div class="info">
-                <h3>${item.nome}</h3>
-                <p>Item salvo na sua lista de favoritos.</p>
+    lista.innerHTML = favoritos.map((item, index) => {
+        const produto = buscarProdutoPorNome(item.nome);
+        const href = produto ? obterHrefProduto(produto.id) : "#";
+        const preco = produto ? formatarPreco(produto.price) : "Produto indisponivel";
+
+        return `
+            <div class="item-carrinho item-favorito">
+                <img src="${item.imagem}" alt="${item.nome}">
+                <div class="info">
+                    <h3>${item.nome}</h3>
+                    <p>Item salvo na sua lista de favoritos.</p>
+                    <span>${preco}</span>
+                </div>
+                <div class="item-carrinho-acoes">
+                    <a class="button-secondary" href="${href}">Ver produto</a>
+                    ${produto ? `<button class="produto-acao" type="button" onclick="adicionarCarrinho('${produto.title.replace(/'/g, "\\'")}', ${produto.price}, '${produto.image}')">Comprar</button>` : ""}
+                </div>
+                <button class="remover" type="button" onclick="removerFavorito(${index})">Remover</button>
             </div>
-            <button class="remover" type="button" onclick="removerFavorito(${index})">Remover</button>
-        </div>
-    `).join("");
+        `;
+    }).join("");
 
     totalElemento.textContent = `Total de itens: ${favoritos.length}`;
+    atualizarBotoesCarrinho();
+    configurarFallbackImagens();
 }
 
 function carregarResumoPedido() {
@@ -638,6 +661,33 @@ function carregarResumoPedido() {
     subtotalElemento.textContent = formatarPreco(subtotal);
     freteElemento.textContent = formatarPreco(frete);
     totalElemento.textContent = formatarPreco(total);
+}
+
+function registrarPedido(carrinho, usuario, pagamento) {
+    const subtotal = carrinho.reduce((total, item) => total + (Number(item.preco) * Number(item.quantidade || 1)), 0);
+    const frete = carrinho.length > 0 ? 25 : 0;
+    const pedido = {
+        id: `pedido-${Date.now()}`,
+        userEmail: usuario?.email || "",
+        createdAt: new Date().toISOString(),
+        payment: pagamento,
+        subtotal,
+        frete,
+        total: subtotal + frete,
+        items: carrinho.map((item) => ({
+            id: item.id,
+            nome: item.nome,
+            imagem: item.imagem,
+            preco: Number(item.preco),
+            quantidade: Number(item.quantidade || 1)
+        }))
+    };
+
+    const pedidos = lerPedidos();
+    pedidos.unshift(pedido);
+    salvarPedidos(pedidos);
+    writeJson(STORAGE_KEYS.lastOrder, pedido);
+    return pedido;
 }
 
 function obterHrefRelativo(arquivo) {
@@ -1004,22 +1054,92 @@ function atualizarLinksDeAutenticacao() {
 
     document.querySelectorAll("[data-auth-link]").forEach((link) => {
         if (usuario) {
-            link.textContent = usuario.name ? `Ola, ${usuario.name.split(" ")[0]}` : "Conta";
+            link.textContent = usuario.name ? `Ola, ${usuario.name.split(" ")[0]} ▾` : "Conta ▾";
             link.classList.add("ativo");
-            link.setAttribute("href", obterHrefRelativo("perfil.html"));
+            link.setAttribute("href", "#");
+            link.dataset.accountTrigger = "true";
+            link.setAttribute("aria-haspopup", "menu");
+            link.setAttribute("aria-expanded", "false");
         } else {
             link.textContent = "Entrar";
             link.classList.remove("ativo");
             link.setAttribute("href", obterHrefRelativo("entra.html"));
+            delete link.dataset.accountTrigger;
+            link.removeAttribute("aria-haspopup");
+            link.removeAttribute("aria-expanded");
         }
     });
 
     document.querySelectorAll(".barNavegacao a[href*='favoritos.html']").forEach((link) => {
-        link.hidden = !usuario;
-        link.setAttribute("aria-hidden", usuario ? "false" : "true");
+        link.hidden = true;
+        link.setAttribute("aria-hidden", "true");
     });
 
     atualizarBotoesFavorito();
+    configurarMenuConta();
+}
+
+function configurarMenuConta() {
+    const usuario = lerSessao();
+    const trigger = document.querySelector("[data-account-trigger='true']");
+    let menu = document.querySelector(".account-menu");
+
+    if (!usuario || !trigger) {
+        menu?.remove();
+        return;
+    }
+
+    if (!menu) {
+        menu = document.createElement("div");
+        menu.className = "account-menu";
+        menu.setAttribute("role", "menu");
+        menu.innerHTML = `
+            <a href="${obterHrefRelativo("perfil.html")}" role="menuitem">Meu perfil</a>
+            <a href="${obterHrefRelativo("favoritos.html")}" role="menuitem">Favoritos</a>
+            <a href="${obterHrefRelativo("pedidos.html")}" role="menuitem">Pedidos</a>
+            <button type="button" data-account-logout role="menuitem">Sair</button>
+        `;
+
+        trigger.parentElement?.appendChild(menu);
+
+        menu.querySelector("[data-account-logout]")?.addEventListener("click", () => {
+            limparSessao();
+            atualizarLinksDeAutenticacao();
+            mostrarToast("Voce saiu da sua conta.", "info");
+            window.setTimeout(() => {
+                window.location.href = obterHrefRelativo("entra.html");
+            }, 250);
+        });
+    }
+
+    if (trigger.dataset.accountBound === "true") {
+        return;
+    }
+
+    trigger.addEventListener("click", (event) => {
+        if (!lerSessao()) {
+            return;
+        }
+
+        event.preventDefault();
+        menu.classList.toggle("is-open");
+        trigger.setAttribute("aria-expanded", menu.classList.contains("is-open") ? "true" : "false");
+    });
+
+    document.addEventListener("click", (event) => {
+        if (!menu || !menu.classList.contains("is-open")) {
+            return;
+        }
+
+        if (event.target === trigger || trigger.contains(event.target) || menu.contains(event.target)) {
+            return;
+        }
+
+        menu.classList.remove("is-open");
+        trigger.setAttribute("aria-expanded", "false");
+    });
+
+    trigger.dataset.accountBound = "true";
 }
 
 function alternarAbaAutenticacao(targetId) {
@@ -1498,6 +1618,8 @@ function configurarCheckout() {
             return;
         }
 
+        const formaPagamento = document.querySelector('input[name="pagamento"]:checked')?.value || "cartao";
+        registrarPedido(carrinho, usuario, formaPagamento);
         localStorage.removeItem(STORAGE_KEYS.cart);
         limparRedirectCheckout();
         mostrarToast("Pedido confirmado com sucesso.", "success");
@@ -1546,6 +1668,108 @@ function configurarPerfil() {
             window.location.href = "./entra.html";
         }, 350);
     });
+}
+
+function renderizarPedidos() {
+    if (document.body.dataset.page !== "orders") {
+        return;
+    }
+
+    const usuario = lerSessao();
+    const lista = document.querySelector(".lista-pedidos");
+    const resumo = document.querySelector("#orders-count");
+
+    if (!usuario) {
+        mostrarToast("Faca login para acessar seus pedidos.", "info");
+        window.setTimeout(() => {
+            window.location.href = "./entra.html";
+        }, 350);
+        return;
+    }
+
+    if (!lista || !resumo) {
+        return;
+    }
+
+    const pedidos = lerPedidos().filter((pedido) => pedido.userEmail === usuario.email);
+    resumo.textContent = `Total de pedidos: ${pedidos.length}`;
+
+    if (pedidos.length === 0) {
+        lista.innerHTML = `
+            <div class="empty-state">
+                <div>
+                    <h3>Voce ainda nao realizou pedidos</h3>
+                    <p>Quando voce concluir uma compra, o historico aparecera aqui.</p>
+                </div>
+            </div>
+        `;
+        return;
+    }
+
+    lista.innerHTML = pedidos.map((pedido) => `
+        <article class="pedido-card">
+            <div class="pedido-head">
+                <div>
+                    <span class="mini-tag">Pedido</span>
+                    <h3>${pedido.id}</h3>
+                </div>
+                <strong>${formatarPreco(pedido.total)}</strong>
+            </div>
+            <p class="pedido-meta">${new Date(pedido.createdAt).toLocaleDateString("pt-BR")} • ${pedido.items.length} item(ns) • ${pedido.payment.toUpperCase()}</p>
+            <div class="pedido-items">
+                ${pedido.items.map((item) => `
+                    <a class="pedido-item" href="${item.id ? obterHrefProduto(item.id) : "#"}">
+                        <img src="${item.imagem}" alt="${item.nome}">
+                        <div>
+                            <strong>${item.nome}</strong>
+                            <span>Quantidade: ${item.quantidade}</span>
+                        </div>
+                    </a>
+                `).join("")}
+            </div>
+        </article>
+    `).join("");
+    configurarFallbackImagens();
+}
+
+function renderizarCompraRealizada() {
+    if (document.body.dataset.page !== "success") {
+        return;
+    }
+
+    const pedido = readJson(STORAGE_KEYS.lastOrder, null);
+    const resumo = document.querySelector("#success-summary");
+    const lista = document.querySelector("#success-items");
+
+    if (!pedido || !resumo || !lista) {
+        return;
+    }
+
+    resumo.innerHTML = `
+        <div class="success-stat">
+            <span>Pedido</span>
+            <strong>${pedido.id}</strong>
+        </div>
+        <div class="success-stat">
+            <span>Total</span>
+            <strong>${formatarPreco(pedido.total)}</strong>
+        </div>
+        <div class="success-stat">
+            <span>Pagamento</span>
+            <strong>${pedido.payment.toUpperCase()}</strong>
+        </div>
+    `;
+
+    lista.innerHTML = pedido.items.map((item) => `
+        <a class="pedido-item" href="${item.id ? obterHrefProduto(item.id) : "#"}">
+            <img src="${item.imagem}" alt="${item.nome}">
+            <div>
+                <strong>${item.nome}</strong>
+                <span>Quantidade: ${item.quantidade}</span>
+            </div>
+        </a>
+    `).join("");
+    configurarFallbackImagens();
 }
 
 function comprarAgora(produtoId) {
@@ -1742,6 +1966,32 @@ function renderizarHomeHighlights() {
     }, 3500);
 }
 
+function animarTrocaDeTema(origem, tema) {
+    if (!origem) {
+        aplicarTema(tema);
+        return;
+    }
+
+    const rect = origem.getBoundingClientRect();
+    const overlay = document.createElement("div");
+    overlay.className = `theme-flash theme-flash--${tema}`;
+    overlay.style.setProperty("--theme-flash-x", `${rect.left + rect.width / 2}px`);
+    overlay.style.setProperty("--theme-flash-y", `${rect.top + rect.height / 2}px`);
+    document.body.appendChild(overlay);
+    document.body.classList.add("theme-transitioning");
+
+    requestAnimationFrame(() => {
+        overlay.classList.add("is-active");
+        aplicarTema(tema);
+    });
+
+    window.setTimeout(() => {
+        overlay.classList.remove("is-active");
+        document.body.classList.remove("theme-transitioning");
+        window.setTimeout(() => overlay.remove(), 420);
+    }, 320);
+}
+
 function aplicarTema(tema) {
     const modoEscuro = tema === "dark";
     document.body.classList.toggle("theme-dark", modoEscuro);
@@ -1769,7 +2019,7 @@ function configurarTema() {
 
         toggle.addEventListener("click", () => {
             const temaAtual = document.body.classList.contains("theme-dark") ? "dark" : "light";
-            aplicarTema(temaAtual === "dark" ? "light" : "dark");
+            animarTrocaDeTema(toggle, temaAtual === "dark" ? "light" : "dark");
         });
     }
 
@@ -1796,5 +2046,7 @@ document.addEventListener("DOMContentLoaded", () => {
     configurarCheckoutNoCarrinho();
     configurarCheckout();
     configurarPerfil();
+    renderizarPedidos();
+    renderizarCompraRealizada();
     renderizarProduto();
 });

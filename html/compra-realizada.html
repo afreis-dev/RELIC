@@ -1,38 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Compra realizada - RELIC</title>
-
-  <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra realizada | Relic</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
+<body data-page="success">
+    <header class="header">
+        <div class="site-shell">
+            <nav class="barNavegacao">
+                <a href="../index.html" class="nav-brand">RELIC</a>
+                <div class="nav-links">
+                    <a href="./vinil.html">Vinil</a>
+                    <a href="./cartas.html">Cartas</a>
+                    <a href="./livros.html">Livros</a>
+                    <a href="./jogos.html">Jogos</a>
+                </div>
+                <div class="nav-actions">
+                    <input type="search" placeholder="Pesquisar produto">
+                    <a href="./carrinho.html">Carrinho</a>
+                    <a href="./entra.html" data-auth-link>Entrar</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-<body>
+    <main class="page-main">
+        <div class="site-shell">
+            <section class="success-shell">
+                <div class="success-hero">
+                    <span class="tag">Pedido confirmado</span>
+                    <h1>Compra realizada com sucesso.</h1>
+                    <p>Seu pedido foi registrado e ja faz parte da sua colecao na Relic.</p>
+                    <div class="hero-actions">
+                        <a href="./pedidos.html" class="button-primary">Ver pedidos</a>
+                        <a href="../index.html" class="button-secondary">Continuar explorando</a>
+                    </div>
+                </div>
 
-  <header class="topo">
-    <div class="logo">RELIC</div>
+                <div class="success-panel">
+                    <div id="success-summary" class="success-summary"></div>
+                    <div class="success-items-wrap">
+                        <h2>Itens do pedido</h2>
+                        <div id="success-items" class="pedido-items"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
 
-    <nav class="menu">
-      <a href="vinil.html">Vinil</a>
-      <a href="cartas.html">Cartas</a>
-      <a href="livros.html">Livros</a>
-      <a href="jogos.html">Jogos</a>
-    </nav>
-
-    <div class="acoes-topo">
-      <input type="text" placeholder="Pesquisar produto">
-      <a href="carrinho.html">Carrinho</a>
-      <a href="entra.html" data-auth-link>Entrar</a>
-    </div>
-  </header>
-
-  <main class="sucesso-container">
-    <h1>Compra realizada com sucesso.</h1>
-    <p>Aproveite seus produtos!</p>
-  </main>
-
-  <script src="../js/products.js"></script>
-  <script src="../js/script.js"></script>
+    <script src="../js/products.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>
