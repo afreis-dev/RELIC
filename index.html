@@ -20,7 +20,7 @@
                 <div class="nav-actions">
                     <input type="search" id="pesquisa" placeholder="Pesquisar item raro">
                     <a href="html/carrinho.html">Carrinho</a>
-                    <a href="html/entra.html">Entrar</a>
+                    <a href="html/entra.html" data-auth-link>Entrar</a>
                 </div>
             </nav>
         </div>
@@ -31,10 +31,10 @@
             <section class="hero">
                 <div class="hero-copy">
                     <span class="tag">Curadoria vintage</span>
-                    <h1>Itens raros para quem gosta de colecionar com estilo.</h1>
+                    <h1>Raridades para quem coleciona memoria, design e historia.</h1>
                     <p>
-                        Explore vinis, cartas, livros e jogos em uma vitrine feita para quem gosta
-                        de nostalgia, colecao e descobertas especiais.
+                        Vinis, cartas, livros e jogos em uma vitrine mais visual, com pecas
+                        escolhidas para quem gosta de nostalgia e descoberta.
                     </p>
                     <div class="hero-actions">
                         <a href="html/vinil.html" class="button-primary">Ver destaques</a>
@@ -44,53 +44,25 @@
 
                 <div class="hero-panel">
                     <div class="panel-highlight">
-                        <strong>Seleção da semana</strong>
-                        <p>Uma seleção de itens que combinam história, estilo e memoria afetiva.</p>
+                        <strong>Destaques da semana</strong>
+                        <p>Uma selecao com pecas de apelo visual forte, pronta para virar vitrine.</p>
                     </div>
                     <div class="hero-stat">
-                        <strong>4 categorias</strong>
-                        <p>Vinil, cartas, livros e jogos em uma unica experiência.</p>
+                        <strong>Colecoes principais</strong>
+                        <p>Vinil, cartas, livros e jogos em uma navegacao mais direta.</p>
                     </div>
                     <div class="hero-stat">
-                        <strong>Favoritos da sua seleção</strong>
-                        <p>Guarde seus itens favoritos antes de seguir para a finalização da compra.</p>
+                        <strong>Favoritos e carrinho</strong>
+                        <p>Salve itens e continue sua compra sem perder o contexto.</p>
                     </div>
-                </div>
-            </section>
-
-            <section>
-                <div class="section-head">
-                    <div>
-                        <h2>Categorias</h2>
-                        <p>Navegue pelas coleções principais da loja.</p>
-                    </div>
-                </div>
-
-                <div class="category-grid">
-                    <a href="html/vinil.html">
-                        <h3>Vinil</h3>
-                        <p>Albuns clássicos e edicoes especiais para a sua estante.</p>
-                    </a>
-                    <a href="html/cartas.html">
-                        <h3>Cartas</h3>
-                        <p>Peças raras e colecionáveis com foco em nostalgia.</p>
-                    </a>
-                    <a href="html/livros.html">
-                        <h3>Livros</h3>
-                        <p>Clássicos atemporais e edições para leitores apaixonados.</p>
-                    </a>
-                    <a href="html/jogos.html">
-                        <h3>Jogos</h3>
-                        <p>Consoles e itens retro para completar sua coleção.</p>
-                    </a>
                 </div>
             </section>
 
             <section class="catalogo">
                 <div class="section-head">
                     <div>
-                        <h2>Destaques</h2>
-                        <p>Seleção especial com itens procurados por colecionadores.</p>
+                        <h2>Destaques da semana</h2>
+                        <p>Uma selecao forte de itens para explorar por imagem, selo e preco.</p>
                     </div>
                 </div>
 
@@ -101,7 +73,7 @@
                         </div>
                         <div class="produto-info">
                             <h3>Vinil Ariana Grande</h3>
-                            <p>Edição especial para colecionadores de pop.</p>
+                            <p>Edicao especial para colecionadores de pop.</p>
                             <span class="produto-preco">R$ 120,00</span>
                             <button class="produto-acao" type="button" onclick="adicionarCarrinho('Vinil Ariana Grande', 120, 'assets/arianavinil.png')">Adicionar ao carrinho</button>
                         </div>
@@ -113,7 +85,7 @@
                         </div>
                         <div class="produto-info">
                             <h3>Charizard Holo</h3>
-                            <p>Carta icônica para coleções de alto valor afetivo.</p>
+                            <p>Carta iconica para colecoes de alto valor afetivo.</p>
                             <span class="produto-preco">R$ 2.500,00</span>
                             <button class="produto-acao" type="button" onclick="adicionarCarrinho('Charizard Holo', 2500, 'assets/Charizard Holo-carta.png')">Adicionar ao carrinho</button>
                         </div>
@@ -125,7 +97,7 @@
                         </div>
                         <div class="produto-info">
                             <h3>Dom Casmurro</h3>
-                            <p>Clássico brasileiro em edição de colecionador.</p>
+                            <p>Classico brasileiro em edicao de colecionador.</p>
                             <span class="produto-preco">R$ 80,00</span>
                             <button class="produto-acao" type="button" onclick="adicionarCarrinho('Dom Casmurro', 80, 'assets/Dom Casmurro-livro.png')">Adicionar ao carrinho</button>
                         </div>
@@ -137,7 +109,7 @@
                         </div>
                         <div class="produto-info">
                             <h3>Super Nintendo</h3>
-                            <p>Console clássico para quem coleciona grandes geraçÕes dos games.</p>
+                            <p>Console classico para quem coleciona grandes geracoes dos games.</p>
                             <span class="produto-preco">R$ 400,00</span>
                             <button class="produto-acao" type="button" onclick="adicionarCarrinho('Super Nintendo', 400, 'assets/super nintendo-console.png')">Adicionar ao carrinho</button>
                         </div>
@@ -147,6 +119,7 @@
         </div>
     </main>
 
+    <script src="js/products.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

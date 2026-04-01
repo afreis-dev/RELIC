@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favoritos | Relic</title>
+    <title>Produto | Relic</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body data-page="product">
     <header class="header">
         <div class="site-shell">
             <nav class="barNavegacao">
@@ -19,7 +19,8 @@
                 </div>
                 <div class="nav-actions">
                     <input type="search" id="pesquisa" placeholder="Pesquisar produto">
-                    <a href="./favoritos.html" class="ativo">Favoritos</a>
+                    <a href="./favoritos.html">Favoritos</a>
+                    <a href="./carrinho.html">Carrinho</a>
                     <a href="./entra.html" data-auth-link>Entrar</a>
                 </div>
             </nav>
@@ -27,28 +28,10 @@
     </header>
 
     <main class="page-main">
-        <div class="site-shell">
-            <section class="carrinho-container">
-                <div class="carrinho-header">
-                    <div>
-                        <span class="tag">Lista</span>
-                        <h1>Seus favoritos</h1>
-                    </div>
-                    <a href="../index.html" class="button-secondary">Voltar a loja</a>
-                </div>
-
-                <div class="lista-favoritos"></div>
-
-                <div class="total">
-                    <h2>Total de itens: 0</h2>
-                    <a href="../index.html" class="btn-finalizar">Explorar produtos</a>
-                </div>
-            </section>
-        </div>
+        <div class="site-shell" id="product-detail"></div>
     </main>
 
     <script src="../js/products.js"></script>
     <script src="../js/script.js"></script>
-    <script src="../js/favoritos.js"></script>
 </body>
 </html>

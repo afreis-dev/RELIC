@@ -3,167 +3,214 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Finalizar compra - RELIC</title>
+  <title>Finalizar compra | Relic</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
-  <header class="topo">
-    <div class="logo">RELIC</div>
-
-    <nav class="menu">
-      <a href="vinil.html">Vinil</a>
-      <a href="cartas.html">Cartas</a>
-      <a href="livros.html">Livros</a>
-      <a href="jogos.html">Jogos</a>
-    </nav>
-
-    <div class="acoes-topo">
-      <input type="text" placeholder="Pesquisar produto">
-      <a href="carrinho.html">Carrinho</a>
-      <a href="entra.html">Entrar</a>
+<body data-page="checkout">
+  <header class="header">
+    <div class="site-shell">
+      <nav class="barNavegacao">
+        <a href="../index.html" class="nav-brand">RELIC</a>
+        <div class="nav-links">
+          <a href="./vinil.html">Vinil</a>
+          <a href="./cartas.html">Cartas</a>
+          <a href="./livros.html">Livros</a>
+          <a href="./jogos.html">Jogos</a>
+        </div>
+        <div class="nav-actions">
+          <input type="search" placeholder="Pesquisar produto">
+          <a href="./carrinho.html">Carrinho</a>
+          <a href="./entra.html" data-auth-link>Entrar</a>
+        </div>
+      </nav>
     </div>
   </header>
 
-  <main class="checkout-container">
-    <section class="checkout-form">
-      <span class="tag">Checkout</span>
-      <h1>Finalizar compra</h1>
+  <main class="page-main">
+    <div class="site-shell">
+      <div class="checkout-guard" id="checkout-guard" aria-live="polite"></div>
 
-      <form>
-        <div class="bloco">
-          <h2>Informações pessoais</h2>
+      <div class="checkout-container">
+        <section class="checkout-form">
+          <span class="tag">Checkout</span>
+          <h1>Finalizar compra</h1>
+          <p class="checkout-lead">
+            Revise seus dados, escolha a forma de pagamento e confirme o pedido.
+          </p>
 
-          <div class="linha">
-            <div class="campo">
-              <label for="nome">Nome completo</label>
-              <input type="text" id="nome" placeholder="Digite seu nome">
+          <form id="checkout-form">
+            <div class="bloco">
+              <h2>Informacoes pessoais</h2>
+
+              <div class="linha">
+                <div class="campo">
+                  <label for="nome">Nome completo</label>
+                  <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                </div>
+
+                <div class="campo">
+                  <label for="cpf">CPF</label>
+                  <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                </div>
+              </div>
+
+              <div class="linha">
+                <div class="campo">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" placeholder="seuemail@email.com" required>
+                </div>
+
+                <div class="campo">
+                  <label for="telefone">Telefone</label>
+                  <input type="text" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                </div>
+              </div>
             </div>
 
-            <div class="campo">
-              <label for="cpf">CPF</label>
-              <input type="text" id="cpf" placeholder="000.000.000-00">
+            <div class="bloco">
+              <h2>Endereco de entrega</h2>
+
+              <div class="linha">
+                <div class="campo">
+                  <label for="cep">CEP</label>
+                  <input type="text" id="cep" name="cep" placeholder="00000-000" required>
+                  <small class="campo-feedback" id="cep-feedback">Digite o CEP para preencher o endereco automaticamente.</small>
+                </div>
+
+                <div class="campo campo-grande">
+                  <label for="rua">Rua</label>
+                  <input type="text" id="rua" name="rua" placeholder="Nome da rua" required>
+                </div>
+              </div>
+
+              <div class="linha">
+                <div class="campo">
+                  <label for="numero">Numero</label>
+                  <input type="text" id="numero" name="numero" placeholder="123" required>
+                </div>
+
+                <div class="campo">
+                  <label for="bairro">Bairro</label>
+                  <input type="text" id="bairro" name="bairro" placeholder="Seu bairro" required>
+                </div>
+
+                <div class="campo">
+                  <label for="cidade">Cidade</label>
+                  <input type="text" id="cidade" name="cidade" placeholder="Sua cidade" required>
+                </div>
+              </div>
+
+              <div class="linha">
+                <div class="campo">
+                  <label for="estado">Estado</label>
+                  <input type="text" id="estado" name="estado" placeholder="UF" required>
+                </div>
+
+                <div class="campo campo-grande">
+                  <label for="complemento">Complemento</label>
+                  <input type="text" id="complemento" name="complemento" placeholder="Apartamento, bloco, referencia...">
+                </div>
+              </div>
             </div>
+
+            <div class="bloco">
+              <h2>Pagamento</h2>
+
+              <div class="linha radios">
+                <label><input type="radio" name="pagamento" value="cartao" checked> Cartao</label>
+                <label><input type="radio" name="pagamento" value="pix"> Pix</label>
+                <label><input type="radio" name="pagamento" value="boleto"> Boleto</label>
+              </div>
+
+              <div id="payment-hint" class="payment-hint">
+                Preencha os dados do cartao para concluir o pagamento.
+              </div>
+
+              <div id="card-fields" class="checkout-payment-group">
+                <div class="linha">
+                  <div class="campo">
+                    <label for="cartao">Numero do cartao</label>
+                    <input type="text" id="cartao" name="cartao" placeholder="0000 0000 0000 0000" data-payment-required="cartao">
+                  </div>
+                </div>
+
+                <div class="linha">
+                  <div class="campo">
+                    <label for="validade">Validade</label>
+                    <input type="text" id="validade" name="validade" placeholder="MM/AA" data-payment-required="cartao">
+                  </div>
+
+                  <div class="campo">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="123" data-payment-required="cartao">
+                  </div>
+
+                  <div class="campo campo-grande">
+                    <label for="titular">Nome do titular</label>
+                    <input type="text" id="titular" name="titular" placeholder="Nome no cartao" data-payment-required="cartao">
+                  </div>
+                </div>
+              </div>
+
+              <div id="pix-fields" class="checkout-payment-group is-hidden">
+                <div class="linha">
+                  <div class="campo">
+                    <label for="pix-chave">Chave Pix</label>
+                    <input type="text" id="pix-chave" name="pixChave" placeholder="CPF, e-mail ou telefone" data-payment-required="pix">
+                  </div>
+
+                  <div class="campo">
+                    <label for="pix-nome">Nome do pagador</label>
+                    <input type="text" id="pix-nome" name="pixNome" placeholder="Nome completo" data-payment-required="pix">
+                  </div>
+                </div>
+              </div>
+
+              <div id="boleto-fields" class="checkout-payment-group is-hidden">
+                <div class="linha">
+                  <div class="campo">
+                    <label for="boleto-email">E-mail para receber o boleto</label>
+                    <input type="email" id="boleto-email" name="boletoEmail" placeholder="seuemail@exemplo.com" data-payment-required="boleto">
+                  </div>
+
+                  <div class="campo">
+                    <label for="boleto-cpf">CPF do pagador</label>
+                    <input type="text" id="boleto-cpf" name="boletoCpf" placeholder="000.000.000-00" data-payment-required="boleto">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        <aside class="resumo-pedido">
+          <h2>Resumo do pedido</h2>
+
+          <div id="lista-resumo"></div>
+
+          <div class="linha-resumo">
+            <p>Subtotal</p>
+            <span id="subtotal">R$ 0,00</span>
           </div>
 
-          <div class="linha">
-            <div class="campo">
-              <label for="email">E-mail</label>
-              <input type="email" id="email" placeholder="seuemail@email.com">
-            </div>
-
-            <div class="campo">
-              <label for="telefone">Telefone</label>
-              <input type="text" id="telefone" placeholder="(00) 00000-0000">
-            </div>
-          </div>
-        </div>
-
-        <div class="bloco">
-          <h2>Endereço de entrega</h2>
-
-          <div class="linha">
-            <div class="campo">
-              <label for="cep">CEP</label>
-              <input type="text" id="cep" placeholder="00000-000">
-            </div>
-
-            <div class="campo campo-grande">
-              <label for="rua">Rua</label>
-              <input type="text" id="rua" placeholder="Nome da rua">
-            </div>
+          <div class="linha-resumo">
+            <p>Frete</p>
+            <span id="frete">R$ 25,00</span>
           </div>
 
-          <div class="linha">
-            <div class="campo">
-              <label for="numero">Número</label>
-              <input type="text" id="numero" placeholder="123">
-            </div>
-
-            <div class="campo">
-              <label for="bairro">Bairro</label>
-              <input type="text" id="bairro" placeholder="Seu bairro">
-            </div>
-
-            <div class="campo">
-              <label for="cidade">Cidade</label>
-              <input type="text" id="cidade" placeholder="Sua cidade">
-            </div>
+          <div class="linha-resumo total">
+            <p>Total</p>
+            <span id="total">R$ 0,00</span>
           </div>
 
-          <div class="linha">
-            <div class="campo">
-              <label for="estado">Estado</label>
-              <input type="text" id="estado" placeholder="UF">
-            </div>
-
-            <div class="campo campo-grande">
-              <label for="complemento">Complemento</label>
-              <input type="text" id="complemento" placeholder="Apartamento, bloco, referência...">
-            </div>
-          </div>
-        </div>
-
-        <div class="bloco">
-          <h2>Pagamento</h2>
-
-          <div class="linha radios">
-            <label><input type="radio" name="pagamento" checked> Cartão de crédito</label>
-            <label><input type="radio" name="pagamento"> Pix</label>
-            <label><input type="radio" name="pagamento"> Boleto</label>
-          </div>
-
-          <div class="linha">
-            <div class="campo">
-              <label for="cartao">Número do cartão</label>
-              <input type="text" id="cartao" placeholder="0000 0000 0000 0000">
-            </div>
-          </div>
-
-          <div class="linha">
-            <div class="campo">
-              <label for="validade">Validade</label>
-              <input type="text" id="validade" placeholder="MM/AA">
-            </div>
-
-            <div class="campo">
-              <label for="cvv">CVV</label>
-              <input type="text" id="cvv" placeholder="123">
-            </div>
-
-            <div class="campo campo-grande">
-              <label for="titular">Nome do titular</label>
-              <input type="text" id="titular" placeholder="Nome no cartão">
-            </div>
-          </div>
-        </div>
-      </form>
-    </section>
-
-    <aside class="resumo-pedido">
-      <h2>Resumo do pedido</h2>
-
-      <div id="lista-resumo"></div>
-
-      <div class="linha-resumo">
-        <p>Subtotal</p>
-        <span id="subtotal">R$ 0,00</span>
+          <button class="btn-confirmar" type="submit" form="checkout-form">Confirmar pedido</button>
+          <a href="./carrinho.html" class="voltar">Voltar ao carrinho</a>
+        </aside>
       </div>
-
-      <div class="linha-resumo">
-        <p>Frete</p>
-        <span id="frete">R$ 25,00</span>
-      </div>
-
-      <div class="linha-resumo total">
-        <p>Total</p>
-        <span id="total">R$ 0,00</span>
-      </div>
-
-      <button class="btn-confirmar">Confirmar pedido</button>
-      <a href="carrinho.html" class="voltar">Voltar ao carrinho</a>
-    </aside>
+    </div>
   </main>
 
+  <script src="../js/products.js"></script>
   <script src="../js/script.js"></script>
 </body>
 </html>

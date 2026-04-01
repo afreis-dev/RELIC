@@ -7,157 +7,180 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-
-<header class="header">
-    <div class="site-shell">
-        <nav class="barNavegacao">
-            <a href="../index.html" class="nav-brand">RELIC</a>
-
-            <div class="nav-links">
-                <a href="./vinil.html">Vinil</a>
-                <a href="./cartas.html">Cartas</a>
-                <a href="./livros.html">Livros</a>
-                <a href="./jogos.html" class="ativo">Jogos</a>
-            </div>
-
-            <div class="nav-actions">
-                <input type="search" placeholder="Pesquisar produto">
-                <a href="./favoritos.html">Favoritos</a>
-                <a href="./carrinho.html">Carrinho</a>
-                <a href="./entra.html">Entrar</a>
-            </div>
-        </nav>
-    </div>
-</header>
-
-<main class="page-main">
-    <div class="site-shell">
-
-        <!-- HERO -->
-        <section class="page-hero">
-            <div class="page-hero-copy">
-                <span class="tag">Categoria</span>
-                <h1>Jogos retrô para colecionadores</h1>
-                <p>Consoles clássicos que marcaram gerações e continuam sendo relíquias.</p>
-            </div>
-
-            <div class="page-hero-panel">
-                <div class="panel-highlight">
-                    <strong>Curadoria especial</strong>
-                    <p>Selecionamos consoles icônicos para sua coleção gamer retrô.</p>
+    <header class="header">
+        <div class="site-shell">
+            <nav class="barNavegacao">
+                <a href="../index.html" class="nav-brand">RELIC</a>
+                <div class="nav-links">
+                    <a href="./vinil.html">Vinil</a>
+                    <a href="./cartas.html">Cartas</a>
+                    <a href="./livros.html">Livros</a>
+                    <a href="./jogos.html" class="ativo">Jogos</a>
                 </div>
-            </div>
-        </section>
-
-        <!-- CATÁLOGO -->
-        <section class="catalogo">
-
-            <div class="section-head">
-                <div>
-                    <h2>Consoles disponíveis</h2>
-                    <p class="catalogo-intro">Explore consoles clássicos em diferentes estados e raridades.</p>
+                <div class="nav-actions">
+                    <input type="search" id="pesquisa" placeholder="Pesquisar produto">
+                    <a href="./favoritos.html">Favoritos</a>
+                    <a href="./carrinho.html">Carrinho</a>
+                    <a href="./entra.html" data-auth-link>Entrar</a>
                 </div>
-            </div>
+            </nav>
+        </div>
+    </header>
 
-            <div class="product-grid">
+    <main class="page-main">
+        <div class="site-shell">
+            <section class="page-hero">
+                <div class="page-hero-copy">
+                    <span class="tag">Categoria</span>
+                    <h1>Jogos retro para colecionadores.</h1>
+                    <p>Consoles classicos que marcaram geracoes e continuam funcionando como reliquias.</p>
+                </div>
+                <div class="page-hero-panel">
+                    <div class="panel-highlight">
+                        <strong>Curadoria especial</strong>
+                        <p>Consoles iconicos para uma vitrine gamer mais visual e menos carregada.</p>
+                    </div>
+                </div>
+            </section>
 
-                <!-- GAME BOY -->
-                <article class="produto-card">
-                    <div class="produto-imagem">
-                        <img src="../assets/gameBoyadvance-removebg.png" alt="Game Boy Advance">
+            <section class="catalogo">
+                <div class="catalogo-tools">
+                    <div class="section-head">
+                        <div>
+                            <h2>Consoles disponiveis</h2>
+                            <p class="catalogo-intro">Explore consoles classicos em diferentes estados e raridades.</p>
+                        </div>
                     </div>
 
-                    <div class="produto-info">
-                        <h3>Game Boy Advance</h3>
-                        <p>Console portátil clássico da Nintendo.</p>
-
-                        <span class="produto-preco">R$ 400,00</span>
-
-                        <button class="produto-acao" onclick="adicionarCarrinho('Game Boy Advance', 400, '../assets/gameBoyadvance-removebg.png')">
-                            Adicionar ao carrinho
-                        </button>
-
-                        <button class="produto-acao secundario" onclick="adicionarFavoritos('Game Boy Advance', '../assets/gameBoyadvance-removebg.png')">
-                            ❤ Favoritar
-                        </button>
+                    <div class="catalogo-filtros">
+                        <div class="filtro-grupo">
+                            <label for="busca-jogos">Buscar</label>
+                            <input id="busca-jogos" type="search" data-filter="search" placeholder="Console ou marca">
+                        </div>
+                        <div class="filtro-grupo">
+                            <label for="estado-jogos">Estado</label>
+                            <select id="estado-jogos" data-filter="condition">
+                                <option value="">Todos</option>
+                                <option value="excelente">Excelente</option>
+                                <option value="muito-bom">Muito bom</option>
+                            </select>
+                        </div>
+                        <div class="filtro-grupo">
+                            <label for="auth-jogos">Autenticidade</label>
+                            <select id="auth-jogos" data-filter="authenticity">
+                                <option value="">Todos</option>
+                                <option value="curadoria">Curadoria verificada</option>
+                                <option value="verificado">Verificado</option>
+                            </select>
+                        </div>
+                        <div class="filtro-grupo">
+                            <label for="disp-jogos">Disponibilidade</label>
+                            <select id="disp-jogos" data-filter="availability">
+                                <option value="">Todos</option>
+                                <option value="disponivel">Disponivel</option>
+                                <option value="ultimo">Ultima unidade</option>
+                            </select>
+                        </div>
                     </div>
-                </article>
+                </div>
 
-                <!-- ATARI -->
-                <article class="produto-card">
-                    <div class="produto-imagem">
-                        <img src="../assets/atari.png" alt="Atari 2600">
-                    </div>
+                <div class="product-grid">
+                    <article class="produto-card" data-search="game boy advance nintendo muito bom verificado disponivel" data-condition="muito-bom" data-authenticity="verificado" data-availability="disponivel">
+                        <div class="produto-imagem">
+                            <img src="../assets/gameBoyadvance-removebg.png" alt="Game Boy Advance">
+                        </div>
+                        <div class="produto-info">
+                            <div class="produto-badges">
+                                <span class="produto-badge status-disponivel">Disponivel</span>
+                                <span class="produto-badge">Verificado</span>
+                            </div>
+                            <h3>Game Boy Advance</h3>
+                            <p>Console portatil classico da Nintendo.</p>
+                            <ul class="produto-meta">
+                                <li><strong>Estado:</strong> Muito bom</li>
+                                <li><strong>Autenticidade:</strong> Verificado pela loja</li>
+                                <li><strong>Disponibilidade:</strong> 2 unidades</li>
+                            </ul>
+                            <span class="produto-preco">R$ 400,00</span>
+                            <button class="produto-acao" type="button" onclick="adicionarCarrinho('Game Boy Advance', 400, '../assets/gameBoyadvance-removebg.png')">Adicionar ao carrinho</button>
+                            <button class="produto-acao secundario" type="button" onclick="adicionarFavoritos('Game Boy Advance', '../assets/gameBoyadvance-removebg.png')">Salvar</button>
+                        </div>
+                    </article>
 
-                    <div class="produto-info">
-                        <h3>Atari 2600</h3>
-                        <p>Um dos primeiros consoles da história.</p>
+                    <article class="produto-card" data-search="atari 2600 atari muito bom curadoria disponivel" data-condition="muito-bom" data-authenticity="curadoria" data-availability="disponivel">
+                        <div class="produto-imagem">
+                            <img src="../assets/atari.png" alt="Atari 2600">
+                        </div>
+                        <div class="produto-info">
+                            <div class="produto-badges">
+                                <span class="produto-badge status-disponivel">Disponivel</span>
+                                <span class="produto-badge">Curadoria</span>
+                            </div>
+                            <h3>Atari 2600</h3>
+                            <p>Um dos primeiros consoles da historia.</p>
+                            <ul class="produto-meta">
+                                <li><strong>Estado:</strong> Muito bom</li>
+                                <li><strong>Autenticidade:</strong> Curadoria verificada</li>
+                                <li><strong>Disponibilidade:</strong> 2 unidades</li>
+                            </ul>
+                            <span class="produto-preco">R$ 550,00</span>
+                            <button class="produto-acao" type="button" onclick="adicionarCarrinho('Atari 2600', 550, '../assets/atari.png')">Adicionar ao carrinho</button>
+                            <button class="produto-acao secundario" type="button" onclick="adicionarFavoritos('Atari 2600', '../assets/atari.png')">Salvar</button>
+                        </div>
+                    </article>
 
-                        <span class="produto-preco">R$ 550,00</span>
+                    <article class="produto-card" data-search="nintendinho nintendo excelente verificado ultimo" data-condition="excelente" data-authenticity="verificado" data-availability="ultimo">
+                        <div class="produto-imagem">
+                            <img src="../assets/nintendinho.png" alt="Nintendinho">
+                        </div>
+                        <div class="produto-info">
+                            <div class="produto-badges">
+                                <span class="produto-badge status-ultimo">Ultima unidade</span>
+                                <span class="produto-badge">Verificado</span>
+                            </div>
+                            <h3>Nintendinho</h3>
+                            <p>Console 8 bits que revolucionou os games.</p>
+                            <ul class="produto-meta">
+                                <li><strong>Estado:</strong> Excelente</li>
+                                <li><strong>Autenticidade:</strong> Verificado pela equipe</li>
+                                <li><strong>Disponibilidade:</strong> 1 unidade</li>
+                            </ul>
+                            <span class="produto-preco">R$ 1.499,00</span>
+                            <button class="produto-acao" type="button" onclick="adicionarCarrinho('Nintendinho', 1499, '../assets/nintendinho.png')">Adicionar ao carrinho</button>
+                            <button class="produto-acao secundario" type="button" onclick="adicionarFavoritos('Nintendinho', '../assets/nintendinho.png')">Salvar</button>
+                        </div>
+                    </article>
 
-                        <button class="produto-acao" onclick="adicionarCarrinho('Atari 2600', 550, '../assets/atari.png')">
-                            Adicionar ao carrinho
-                        </button>
+                    <article class="produto-card" data-search="game boy color nintendo excelente verificado disponivel" data-condition="excelente" data-authenticity="verificado" data-availability="disponivel">
+                        <div class="produto-imagem">
+                            <img src="../assets/gameboycolor.png" alt="Game Boy Color">
+                        </div>
+                        <div class="produto-info">
+                            <div class="produto-badges">
+                                <span class="produto-badge status-disponivel">Disponivel</span>
+                                <span class="produto-badge">Verificado</span>
+                            </div>
+                            <h3>Game Boy Color</h3>
+                            <p>Versao colorida do classico portatil.</p>
+                            <ul class="produto-meta">
+                                <li><strong>Estado:</strong> Excelente</li>
+                                <li><strong>Autenticidade:</strong> Verificado pela loja</li>
+                                <li><strong>Disponibilidade:</strong> 2 unidades</li>
+                            </ul>
+                            <span class="produto-preco">R$ 1.000,00</span>
+                            <button class="produto-acao" type="button" onclick="adicionarCarrinho('Game Boy Color', 1000, '../assets/gameboycolor.png')">Adicionar ao carrinho</button>
+                            <button class="produto-acao secundario" type="button" onclick="adicionarFavoritos('Game Boy Color', '../assets/gameboycolor.png')">Salvar</button>
+                        </div>
+                    </article>
+                </div>
 
-                        <button class="produto-acao secundario" onclick="adicionarFavoritos('Atari 2600', '../assets/atari.png')">
-                            ❤ Favoritar
-                        </button>
-                    </div>
-                </article>
+                <div class="catalogo-vazio">Nenhum console corresponde aos filtros selecionados.</div>
+            </section>
+        </div>
+    </main>
 
-                <!-- NINTENDINHO -->
-                <article class="produto-card">
-                    <div class="produto-imagem">
-                        <img src="../assets/nintendinho.png" alt="Nintendinho">
-                    </div>
-
-                    <div class="produto-info">
-                        <h3>Nintendinho</h3>
-                        <p>Console 8 bits que revolucionou os games.</p>
-
-                        <span class="produto-preco">R$ 1499,00</span>
-
-                        <button class="produto-acao" onclick="adicionarCarrinho('Nintendinho', 1499, '../assets/nintendinho.png')">
-                            Adicionar ao carrinho
-                        </button>
-
-                        <button class="produto-acao secundario" onclick="adicionarFavoritos('Nintendinho', '../assets/nintendinho.png')">
-                            ❤ Favoritar
-                        </button>
-                    </div>
-                </article>
-
-                <!-- GAME BOY COLOR -->
-                <article class="produto-card">
-                    <div class="produto-imagem">
-                        <img src="../assets/gameboycolor.png" alt="Game Boy Color">
-                    </div>
-
-                    <div class="produto-info">
-                        <h3>Game Boy Color</h3>
-                        <p>Versão colorida do clássico portátil.</p>
-
-                        <span class="produto-preco">R$ 1000,00</span>
-
-                        <button class="produto-acao" onclick="adicionarCarrinho('Game Boy Color', 1000, '../assets/gameboycolor.png')">
-                            Adicionar ao carrinho
-                        </button>
-
-                        <button class="produto-acao secundario" onclick="adicionarFavoritos('Game Boy Color', '../assets/gameboycolor.png')">
-                            ❤ Favoritar
-                        </button>
-                    </div>
-                </article>
-
-            </div>
-
-        </section>
-
-    </div>
-</main>
-
-<script src="../js/script.js"></script>
-<script src="../js/favoritos.js"></script>
-
+    <script src="../js/products.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/favoritos.js"></script>
 </body>
 </html>

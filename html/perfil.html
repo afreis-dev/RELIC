@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil | Relic</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="profile">
+    <header class="header">
+        <div class="site-shell">
+            <nav class="barNavegacao">
+                <a href="../index.html" class="nav-brand">RELIC</a>
+                <div class="nav-links">
+                    <a href="./vinil.html">Vinil</a>
+                    <a href="./cartas.html">Cartas</a>
+                    <a href="./livros.html">Livros</a>
+                    <a href="./jogos.html">Jogos</a>
+                </div>
+                <div class="nav-actions">
+                    <input type="search" id="pesquisa" placeholder="Pesquisar produto">
+                    <a href="./favoritos.html">Favoritos</a>
+                    <a href="./carrinho.html">Carrinho</a>
+                    <a href="./perfil.html" class="ativo" data-auth-link>Entrar</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-main">
+        <div class="site-shell">
+            <section class="login-container">
+                <div class="login-destaque">
+                    <span class="selo-vintage">Minha conta</span>
+                    <h1>Seu perfil na Relic.</h1>
+                    <p>
+                        Aqui o usuario pode acompanhar os dados da conta, acessar favoritos,
+                        revisar o carrinho e seguir direto para a finalizacao da compra.
+                    </p>
+
+                    <div class="login-cards">
+                        <article class="mini-card">
+                            <span class="mini-tag">Carrinho</span>
+                            <h2>Continue comprando</h2>
+                            <p>Volte para o carrinho e finalize os itens salvos na sua sessao.</p>
+                        </article>
+
+                        <article class="mini-card">
+                            <span class="mini-tag">Favoritos</span>
+                            <h2>Itens salvos</h2>
+                            <p>Veja os produtos marcados para consultar depois.</p>
+                        </article>
+
+                        <article class="mini-card">
+                            <span class="mini-tag">Checkout</span>
+                            <h2>Compra rapida</h2>
+                            <p>Siga para a finalizacao com seus dados de conta ja preenchidos.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="login-box">
+                    <span class="selo-vintage">Perfil do usuario</span>
+                    <h2 id="profile-name">Usuario</h2>
+                    <p class="login-texto">Conta ativa no marketplace vintage.</p>
+
+                    <div class="auth-session-card">
+                        <h3>Dados da conta</h3>
+                        <p><strong>E-mail:</strong> <span id="profile-email">-</span></p>
+                        <p><strong>Status:</strong> <span id="profile-status">-</span></p>
+
+                        <div class="auth-session-actions">
+                            <a href="./favoritos.html" class="button-secondary">Ver favoritos</a>
+                            <a href="./carrinho.html" class="button-secondary">Abrir carrinho</a>
+                            <a href="./finalizar-compra.html" class="button-primary">Ir para o checkout</a>
+                            <button type="button" class="button-secondary" id="profile-logout">Sair da conta</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../js/products.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

@@ -6,7 +6,7 @@
     <title>Carrinho | Relic</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body data-page="cart">
     <header class="header">
         <div class="site-shell">
             <nav class="barNavegacao">
@@ -20,7 +20,7 @@
                 <div class="nav-actions">
                     <input type="search" id="pesquisa" placeholder="Pesquisar produto">
                     <a href="./carrinho.html" class="ativo">Carrinho</a>
-                    <a href="./entra.html">Entrar</a>
+                    <a href="./entra.html" data-auth-link>Entrar</a>
                 </div>
             </nav>
         </div>
@@ -41,12 +41,13 @@
 
                 <div class="total">
                     <h2>Total: R$ 0,00</h2>
-                    <a href="finalizar-compra.html" class="btn-finalizar">Finalizar compra</a>
+                    <a href="finalizar-compra.html" class="btn-finalizar" data-checkout-link>Finalizar compra</a>
                 </div>
             </section>
         </div>
     </main>
 
+    <script src="../js/products.js"></script>
     <script src="../js/script.js"></script>
 </body>
 </html>

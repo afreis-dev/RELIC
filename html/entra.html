@@ -6,7 +6,7 @@
     <title>Entrar | Relic</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body data-page="auth">
     <header class="header">
         <div class="site-shell">
             <nav class="barNavegacao">
@@ -18,9 +18,9 @@
                     <a href="./jogos.html">Jogos</a>
                 </div>
                 <div class="nav-actions">
-                    <input type="search" id="pesquisa" placeholder="Pesquisar produto">
+                    <input type="search" id="pesquisa" placeholder="Pesquisar item raro">
                     <a href="./carrinho.html">Carrinho</a>
-                    <a href="./entra.html" class="ativo">Entrar</a>
+                    <a href="./entra.html" class="ativo" data-auth-link>Entrar</a>
                 </div>
             </nav>
         </div>
@@ -29,68 +29,102 @@
     <main class="page-main">
         <div class="site-shell">
             <section class="login-container">
-                <section class="login-destaque">
-                    <span class="selo-vintage">Marketplace vintage</span>
-                    <h1>Entre para acompanhar a sua colecao.</h1>
+                <div class="login-destaque">
+                    <span class="selo-vintage">Acesso seguro</span>
+                    <h1>Entre ou crie sua conta.</h1>
                     <p>
-                        Entre para acompanhar favoritos, revisar pedidos e continuar explorando o acervo da loja.
+                        Para finalizar a compra, salvar o carrinho e acompanhar pedidos,
+                        o usuario precisa estar autenticado. Se voce chegou aqui antes do checkout,
+                        depois do login a loja leva voce direto para a finalizacao.
                     </p>
 
                     <div class="login-cards">
                         <article class="mini-card">
-                            <span class="mini-tag">Raro</span>
-                            <h2>Pink Floyd</h2>
-                            <p>Edicoes especiais para uma biblioteca musical de respeito.</p>
+                            <span class="mini-tag">Login</span>
+                            <h2>Continue sua compra</h2>
+                            <p>Quem ja tem conta volta para o checkout sem perder o carrinho.</p>
                         </article>
 
                         <article class="mini-card">
-                            <span class="mini-tag">Limitado</span>
-                            <h2>Charizard</h2>
-                            <p>Itens de alto apelo nostalgico em um fluxo mais organizado.</p>
+                            <span class="mini-tag">Cadastro</span>
+                            <h2>Crie sua conta</h2>
+                            <p>Registre nome, email e senha para comprar e acompanhar pedidos.</p>
                         </article>
 
                         <article class="mini-card">
-                            <span class="mini-tag">Classico</span>
-                            <h2>1984</h2>
-                            <p>Curadoria de livros, jogos e colecionaveis em uma so vitrine.</p>
+                            <span class="mini-tag">Checkout</span>
+                            <h2>Pagamento flexivel</h2>
+                            <p>Depois do login, o usuario escolhe entre cartao, Pix ou boleto.</p>
                         </article>
                     </div>
-                </section>
+                </div>
 
-                <section class="login-box">
-                    <span class="selo-vintage">Acesso do usuario</span>
-                    <h2>Bem-vindo de volta</h2>
-                    <p class="login-texto">Faca login para continuar explorando o acervo vintage.</p>
+                <div class="login-box">
+                    <span class="selo-vintage">Autenticacao</span>
+                    <h2>Sua conta na Relic</h2>
+                    <p class="login-texto">
+                        Escolha entre entrar na conta existente ou criar um cadastro rapido.
+                    </p>
 
-                    <form class="form-login">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+                    <div class="auth-switch" role="tablist" aria-label="Alternar entre login e cadastro">
+                        <button type="button" class="auth-tab is-active" data-auth-target="login-panel">Entrar</button>
+                        <button type="button" class="auth-tab" data-auth-target="register-panel">Cadastrar</button>
+                    </div>
 
-                        <label for="senha">Senha</label>
-                        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                    <div class="auth-feedback" id="auth-feedback" aria-live="polite"></div>
 
-                        <div class="login-opcoes">
-                            <label class="lembrar">
-                                <input type="checkbox" name="lembrar">
-                                Lembrar de mim
-                            </label>
-                            <a href="#">Esqueci minha senha</a>
+                    <section id="auth-session-card" class="auth-session-card is-hidden">
+                        <h3>Voce ja esta logado.</h3>
+                        <p id="auth-session-text"></p>
+                        <div class="auth-session-actions">
+                            <a href="./finalizar-compra.html" class="button-primary">Ir para o checkout</a>
+                            <button type="button" class="button-secondary" id="logout-button">Sair da conta</button>
                         </div>
+                    </section>
 
-                        <button type="submit" class="botao-login">Entrar na conta</button>
-                    </form>
+                    <section id="login-panel" class="auth-panel">
+                        <form class="form-login" id="login-form">
+                            <label for="login-email">E-mail</label>
+                            <input type="email" id="login-email" name="email" placeholder="seuemail@exemplo.com" required>
 
-                    <div class="divisor">
-                        <span>ou continue com</span>
-                    </div>
+                            <label for="login-password">Senha</label>
+                            <input type="password" id="login-password" name="password" placeholder="Digite sua senha" required>
 
-                    <div class="login-social">
-                        <button type="button">Google</button>
-                        <button type="button">GitHub</button>
-                    </div>
-                </section>
+                            <div class="login-opcoes">
+                                <label class="lembrar">
+                                    <input type="checkbox" name="remember">
+                                    Lembrar de mim
+                                </label>
+                                <span class="auth-hint">Apos o login, voce volta para a compra.</span>
+                            </div>
+
+                            <button type="submit" class="botao-login">Entrar na conta</button>
+                        </form>
+                    </section>
+
+                    <section id="register-panel" class="auth-panel is-hidden">
+                        <form class="form-login" id="register-form">
+                            <label for="register-name">Nome completo</label>
+                            <input type="text" id="register-name" name="name" placeholder="Digite seu nome" required>
+
+                            <label for="register-email">E-mail</label>
+                            <input type="email" id="register-email" name="email" placeholder="seuemail@exemplo.com" required>
+
+                            <label for="register-password">Senha</label>
+                            <input type="password" id="register-password" name="password" placeholder="Crie uma senha" minlength="6" required>
+
+                            <label for="register-confirm-password">Confirmar senha</label>
+                            <input type="password" id="register-confirm-password" name="confirmPassword" placeholder="Digite a senha novamente" minlength="6" required>
+
+                            <button type="submit" class="botao-login">Criar conta</button>
+                        </form>
+                    </section>
+                </div>
             </section>
         </div>
     </main>
+
+    <script src="../js/products.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>
