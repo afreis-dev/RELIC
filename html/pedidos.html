@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favoritos | Relic</title>
+    <title>Pedidos | Relic</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body data-page="favorites">
+<body data-page="orders">
     <header class="header">
         <div class="site-shell">
             <nav class="barNavegacao">
@@ -20,7 +20,7 @@
                 <div class="nav-actions">
                     <input type="search" id="pesquisa" placeholder="Pesquisar produto">
                     <a href="./carrinho.html">Carrinho</a>
-                    <a href="./entra.html" data-auth-link>Entrar</a>
+                    <a href="./perfil.html" data-auth-link>Entrar</a>
                 </div>
             </nav>
         </div>
@@ -28,20 +28,19 @@
 
     <main class="page-main">
         <div class="site-shell">
-            <section class="carrinho-container">
+            <section class="carrinho-container pedidos-shell">
                 <div class="carrinho-header">
                     <div>
-                        <span class="tag">Lista</span>
-                        <h1>Seus favoritos</h1>
+                        <span class="tag">Historico</span>
+                        <h1>Seus pedidos</h1>
                     </div>
                     <a href="./perfil.html" class="button-secondary">Voltar ao hub</a>
                 </div>
 
-                <div class="lista-favoritos"></div>
+                <div class="lista-pedidos"></div>
 
                 <div class="total">
-                    <h2>Total de itens: 0</h2>
-                    <a href="../index.html" class="btn-finalizar">Explorar produtos</a>
+                    <h2 id="orders-count">Total de pedidos: 0</h2>
                 </div>
             </section>
         </div>

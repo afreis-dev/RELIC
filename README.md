@@ -1,34 +1,50 @@
-# Relic
+# RELIC (Rare Editions & Legendary Items Collection)
 
-Marketplace tematico voltado para itens vintage, raros e colecionaveis, com foco em vinis, cartas, livros e jogos classicos.
+Protótipo de marketplace para itens colecionáveis, raros e vintage, desenvolvido para a disciplina de **Interação Humano-Computador (IHC)**.
 
-## Sobre o projeto
+O projeto foi pensado para melhorar a experiência de compra e navegação de usuários interessados em **vinis, cartas, livros e jogos clássicos**, com foco em **usabilidade, feedback visual, prevenção de erros e clareza nas ações**.
 
-Este projeto foi desenvolvido para a disciplina de **Interfaces Humano-Computador (IHC)** como um prototipo navegavel de marketplace. A proposta e construir uma experiencia simples, organizada e visualmente consistente para explorar produtos de colecao.
+## Visão geral
 
-## Problema que estamos resolvendo
+O **RELIC (Rare Editions & Legendary Items Collection)** foi criado para resolver um problema comum em marketplaces genéricos: a dificuldade de encontrar itens colecionáveis com informações claras sobre **estado**, **autenticidade**, **disponibilidade** e **segurança no processo de compra**.
 
-Pessoas interessadas em itens vintage e colecionaveis muitas vezes encontram dificuldade para localizar produtos raros com informacoes claras sobre estado de conservacao, autenticidade, preco e disponibilidade.
+A proposta da interface é oferecer uma navegação mais intuitiva, visualmente consistente e mais adequada ao nicho de colecionadores.
 
-O projeto busca resolver esse problema por meio de uma interface simples, intuitiva e organizada.
+## Objetivo do projeto
 
-## Publico-alvo
+Desenvolver uma interface digital para um marketplace de itens colecionáveis que seja:
 
-- colecionadores
-- apreciadores de cultura retro
-- usuarios interessados em vinis, cartas, livros e jogos antigos
-- pessoas que valorizam itens raros, classicos e de edicao limitada
+- intuitiva
+- eficiente
+- segura
+- visualmente consistente
+- fácil de navegar
 
-## Funcionalidades atuais
+## Público-alvo
 
-- pagina inicial com destaque e atalhos para categorias
-- navegacao entre vinil, cartas, livros e jogos
-- filtros por busca, estado de conservacao, autenticidade e disponibilidade
-- cards com preco, autenticidade, disponibilidade e condicao do item
-- pagina de login
-- carrinho com persistencia via `localStorage`
-- layout responsivo compartilhado entre as telas
-- transicao de carregamento entre paginas
+O projeto foi pensado principalmente para:
+
+- jovens adultos entre 18 e 35 anos
+- colecionadores de itens raros
+- usuários interessados em vinis, cartas, livros e jogos clássicos
+- pequenos vendedores e compradores de produtos colecionáveis
+
+## Principais funcionalidades
+
+- página inicial com destaques e navegação entre categorias
+- páginas de categorias para `vinil`, `cartas`, `livros` e `jogos`
+- página individual de produto
+- sistema de login e cadastro
+- página de perfil do usuário
+- favoritos
+- carrinho com persistência via `localStorage`
+- finalização de compra
+- tela de compra concluída
+- histórico de pedidos
+- busca com sugestões automáticas
+- feedback visual para ações importantes
+- tratamento de erros no login e no fluxo de compra
+- modo claro e escuro
 
 ## Estrutura do projeto
 
@@ -37,78 +53,125 @@ Projeto-IHC/
 |-- index.html
 |-- README.md
 |-- assets/
-|   |-- 1984-livro.png
-|   |-- arianavinil.png
-|   |-- Charizard Holo-carta.png
-|   |-- deadpool-jogo.png
-|   |-- disco-de-vinil-elton-john.png
-|   |-- Dom Casmurro-livro.png
-|   |-- gameboy advance.png
-|   |-- Harry Potter-livro.png
-|   |-- Mewtwo GX-carta.png
-|   |-- O Hobbit-livro.png
-|   |-- pikachu-ilustrator-carta.png
-|   |-- ps1-console.png
-|   |-- Rayquaza EX-carta.png
-|   |-- super nintendo-console.png
-|   |-- Vinil Michael Jackson.png
-|   |-- vinil-taylor-swift.png
+|   |-- imagens dos produtos
 |-- css/
 |   |-- style.css
 |-- html/
+|   |-- entra.html
+|   |-- perfil.html
+|   |-- favoritos.html
+|   |-- pedidos.html
+|   |-- carrinho.html
+|   |-- finalizar-compra.html
+|   |-- compra-realizada.html
+|   |-- produto.html
 |   |-- vinil.html
 |   |-- cartas.html
 |   |-- livros.html
 |   |-- jogos.html
-|   |-- carrinho.html
-|   |-- entra.html
 |-- js/
 |   |-- script.js
+|   |-- products.js
+|   |-- favoritos.js
 ```
 
-## Como executar
+## Fluxos implementados
 
-1. Clone este repositorio.
-2. Abra a pasta do projeto.
-3. Execute o arquivo `index.html` no navegador.
+### Fluxo principal
+
+1. acessar a tela inicial
+2. fazer login
+3. pesquisar ou navegar por um item
+4. abrir a página do produto
+5. adicionar ao carrinho
+6. acessar o carrinho
+7. finalizar a compra
+
+### Fluxo alternativo de erro
+
+1. acessar a tela de login
+2. inserir dados inválidos
+3. receber feedback de erro
+4. corrigir as informações
+5. tentar novamente
+
+## Estados do sistema
+
+O protótipo contempla os principais estados de interação:
+
+- `normal`
+- `carregamento`
+- `erro`
+- `sucesso`
+
+## Conceitos de IHC aplicados
+
+Durante o desenvolvimento do projeto, foram trabalhados conceitos como:
+
+- usabilidade
+- affordances
+- eficiência
+- eficácia
+- feedback do sistema
+- prevenção e recuperação de erros
+- consistência visual entre telas
+
+## Teste de usabilidade
+
+Foi realizado um mini teste de usabilidade com a tarefa:
+
+> encontrar um item colecionável e adicioná-lo ao carrinho
+
+### Resultados
+
+- Participante 1
+  - Tempo: `03:04`
+  - Erros: `2`
+  - Conclusão: `Sim`
+  - Satisfação: `4,5 / 5`
+
+- Participante 2
+  - Tempo: `01:52`
+  - Erros: `2`
+  - Conclusão: `Sim`
+  - Satisfação: `4,75 / 5`
+
+### Principal melhoria aplicada após o teste
+
+Antes, a busca exigia que o usuário digitasse o nome completo do item.  
+Depois, foi implementado um sistema de **sugestões automáticas**, reduzindo esforço cognitivo e tornando a pesquisa mais rápida e intuitiva.
 
 ## Tecnologias utilizadas
 
-- `HTML`
-- `CSS`
+- `HTML5`
+- `CSS3`
 - `JavaScript`
-- `Git`
-- `GitHub`
+- `localStorage`
+- `Visual Studio Code`
+- `Git` e `GitHub`
 
-## Melhorias recentes
+## Como executar
 
-- reorganizacao visual das paginas principais
-- implementacao de transicao global de carregamento entre telas
-- atualizacao dos cards com informacoes de autenticidade, disponibilidade e estado
-- criacao de filtros nas vitrines de categorias
-- ajuste das imagens e nomes dos produtos para os novos assets
-- melhoria do carrinho com persistencia e renderizacao dinamica
-
-## Objetivos de IHC
-
-O prototipo foi pensado para exercitar principios como:
-
-- usabilidade
-- eficiencia de navegacao
-- consistencia visual
-- feedback ao usuario
-- prevencao e tratamento de erros
+1. Clone este repositório.
+2. Abra a pasta do projeto.
+3. Execute o arquivo `index.html` no navegador.
 
 ## Equipe
 
-- Arthur de Almeida Oliveira - `arthurdalmeida`
-- Arthur Filipe Silva dos Reis - `afreis-dev`
-- Gabriel Gondim Malta - `bielmalta`
-- Luisa Fischer Veras Mascena - `luisafischerv`
-- Maria Luisa Dijck Muniz - `marialuisadmuniz`
-- Matheus Assis de Souza Jacome - `cabelinho250`
-- Sofia Villela Vieira - `SofiaVillela`
+- Arthur de Almeida Oliveira
+- Arthur Filipe Silva dos Reis
+- Gabriel Gondim Malta
+- Luísa Fischer Veras Mascena
+- Maria Luísa Dijck Muniz
+- Matheus Assis de Souza Jácome
+- Sofia Villela Vieira
+
+## Referências
+
+- NIELSEN, Jakob. *Usability Engineering*.
+- NORMAN, Don. *The Design of Everyday Things*.
+- Material disponibilizado pela professora Renatta Nigro.
 
 ## Status
 
-Em desenvolvimento.
+Projeto finalizado para apresentação da disciplina de IHC.
