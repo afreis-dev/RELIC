@@ -126,13 +126,13 @@ Foi realizado um mini teste de usabilidade com a tarefa:
 
 - Participante 1
   - Tempo: `03:04`
-  - Erros: `2`
+  - Erros: `5`
   - Conclusão: `Sim`
-  - Satisfação: `4,5 / 5`
+  - Satisfação: `3,5 / 5`
 
 - Participante 2
   - Tempo: `01:52`
-  - Erros: `2`
+  - Erros: `5`
   - Conclusão: `Sim`
   - Satisfação: `4,75 / 5`
 
